@@ -32,3 +32,18 @@ router.get('/me', async (req, res, next) => {
     next(ex);
   }
 });
+
+
+
+
+router.put('/', async (req, res, next) => {
+  try{
+    const user = await User.findByToken(req.headers.authorization);
+    if(user){
+      user = req.body;
+     await user.save();
+    }
+  } catch(err){
+    next(err);
+  }
+})
