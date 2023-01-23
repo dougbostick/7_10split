@@ -20,9 +20,22 @@ async function seed() {
 
   const products = await Promise.all([
     //bowling balls
-    Product.create({name: '13 lbs Bowling Ball', description: 'Heavy weight ball, perfect for turning those 9 pinners into STRIKES!', price: 120.99, category: 'ball', imgUrl: '', weight: 13}),
-    Product.create({name: '11 lbs Bowling Ball', description: '11 lbs of glory! The aqua blue finish on this ball will keep your game cool.', price: 110.99, category: 'ball', imgUrl: 'https://i.ebayimg.com/images/g/2GIAAOSw0jlivMdk/s-l500.png', weight: 11}),
-    Product.create({name: '9 lbs Bowling Ball', description: 'Light weight ball, a good fit for the bowler who doesn\'t need the extra weight to get the job done!', price: 90.99, category: 'ball', imgUrl: 'https://i5.walmartimages.com/asr/a2c261a7-71d0-4f69-a53b-a59bccd7f351_1.37c32be72610e1bdbbf54a1d0dcd9e4e.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF', weight: 9}),
+    Product.create({name: 'Brunswick TZone Indigo Swirl', description: 'A perfect ball for the bowler who is just beginning or as a spare for those extra few pins. Grab this TZone today for your arsenal!', price: 49.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/5910.large.jpg', weight: 13, color: 'multi-color'}),
+    Product.create({name: 'Brunswick TZone Deep Space', description: 'This Brunswick TZone Deep Space ball features tons of stars! Light up your game today by destroying those pins with the stars on your side!', price: 54.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/9310.large.jpg', weight: 13, color: 'multi-color'}),
+    Product.create({name: 'Brunswick TZone Caribbean Blue', description: 'It\'s always good to have a spare! Get pinpoint accuracy and show your style. Available in attractive colors and patterns at an affordable price. This TZone Caribbean Blue makes a great gift for all types of bowlers! So stand out on the lanes with this uniquely colored ball today!', price: 49.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/6469.large.jpg', weight: 13, color: 'multi-color'}),
+    Product.create({name: 'Brunswick TZone Scarlet Shadow', description: 'Sneak up on the competition with the Brunswick TZone Scarlet Shadow. This fun plastic/spare ball not only looks good on the lanes but is perfect for beginners, straight bowlers, or pros looking for a spare ball.', price: 54.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/10510.large.jpg', weight: 13, color: 'multi-color'}),
+    Product.create({name: 'Brunswick TZone Frozen Bliss', description: 'Ice the competition with the Brunswick TZone Frozen Bliss. This fun plastic/spare ball not only looks good on the lanes but is perfect for beginners, straight bowlers, or pros looking for a spare ball.', price: 49.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/12354.large.jpg', weight: 13, color: 'multi-color'}),
+    Product.create({name: 'Brunswick TZone Galactic Sparkle', description: 'This Brunswick TZone Galactic Sparkle ball features tons of stars! Light up your game today by destroying those pins with the stars on your side!', price: 49.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/13168.large.jpg', weight: 13, color: 'multi-color'}),
+    Product.create({name: 'Brunswick TZone Ocean Reef', description: 'Take on the competition with the Brunswick TZone Ocean Reef. This fun plastic/spare ball not only looks good on the lanes but is perfect for beginners, straight bowlers, or pros looking for a spare ball.', price: 49.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/11293.large.jpg', weight: 13, color: 'multi-color'}),
+
+
+    Product.create({name: 'Elite Star Pink Pearl', description: 'This great-looking Elite Star Bowling Ball makes an attractive and durable ball for recreational bowlers. This ball is great for a bowler just starting out and/or for any bowler looking to knock out those spares! Pick out your Elite Star ball today!', price: 90.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/14205.large.jpg', weight: 9, color: 'one color'}),
+
+
+
+
+    Product.create({name: '11 lbs Bowling Ball', description: '11 lbs of glory! The aqua blue finish on this ball will keep your game cool.', price: 110.99, category: 'ball', imgUrl: 'https://i.ebayimg.com/images/g/2GIAAOSw0jlivMdk/s-l500.png', weight: 11, color: 'one color'}),
+    Product.create({name: '9 lbs Bowling Ball', description: 'Light weight ball, a good fit for the bowler who doesn\'t need the extra weight to get the job done!', price: 90.99, category: 'ball', imgUrl: 'https://i5.walmartimages.com/asr/a2c261a7-71d0-4f69-a53b-a59bccd7f351_1.37c32be72610e1bdbbf54a1d0dcd9e4e.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF', weight: 9, color: 'one color'}),
 
     //mens shoes
     Product.create({name: '2G kicks men black', description: '2G has come out with a shoe fitted with their latest sole shaping technology!', price: 44.99, category: 'shoe', imgUrl: 'https://images.bowling.com/large/6286.large.jpg', gender: 'men', color: 'one color'}),
