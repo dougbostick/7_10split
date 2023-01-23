@@ -1,31 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectProducts, fetchProducts } from './allProductsSlice';
+import { selectProducts, fetchProducts, sortByCategory, selectFilteredProducts } from './allProductsSlice';
 import { selectUser } from '../auth/authSlice'
 import { fetchOrder, selectCart, addToCart } from '../cart/cartSlice';
 import { Link } from 'react-router-dom'
 
 export default function AllProducts() {
+  const [category, setCategory] = useState('');
+  const [view, setView] = useState('all');
 
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
+  const filteredProducts = useSelector(selectFilteredProducts);
   const user = useSelector(selectUser);
-  const cart = useSelector(selectCart);
 
-  
-  console.log(user.me)
-  console.log('cart', cart)
-
+  // console.log(user.me)
+  // console.log('cart', cart)
 
 useEffect(() => {
   dispatch(fetchProducts());
 }, [dispatch])
-
-// useEffect(() => {
-//   if(user.me.id) {
-//   dispatch(fetchCart(user.me.id));
-//   }
-// }, [dispatch])
 
 const handleAddToCart = (productId) => {
   console.log(productId)
@@ -37,24 +31,53 @@ const handleAddToCart = (productId) => {
   });
 }
 
-  const productsDiv = products ? products.map((product) => {
+const handleSubmit = (evt) => {
+  evt.preventDefault();
+  console.log('handlesub', category);
+  dispatch(sortByCategory(category));
+  setView('filtered');
+}
+
+  const allProductsDiv = products ? products.map((product) => {
     return (
       <div key={product.id} className='productDiv'>  
       <Link to={`/products/${product.id}`} >
           <img src={product.imgUrl} className='productImg'/>
           </Link>
           <div>{product.name}</div>
-          <div>{product.description}</div>
           <div>{product.price}</div>
           <button onClick={() => handleAddToCart(product.id)}>Add To Cart</button>
       </div>
     )
-  }) : null;
+  }) : 'no products';
 
+  const filteredProductsDiv = filteredProducts ? filteredProducts.map((product) => {
+    return (
+      <div key={product.id} className='productDiv'>  
+      <Link to={`/products/${product.id}`} >
+          <img src={product.imgUrl} className='productImg'/>
+          </Link>
+          <div>{product.name}</div>
+          <div>{product.price}</div>
+          <button onClick={() => handleAddToCart(product.id)}>Add To Cart</button>
+      </div>
+    )
+  }): 'no filtred products'
+
+  const productsDiv = view === 'all' ? allProductsDiv : filteredProductsDiv;
   return (
     <div>
     <h1>All Products</h1>
-    <div>{products.length ? productsDiv : 'no products'}</div>
+    <form>
+    <select onChange={(e) => setCategory(e.target.value)}>
+      <option value='all'>All Products</option>
+      <option value='ball'>Bowling Balls</option>
+      <option value='shoe'>Bowlings Shoes</option>
+    </select>
+    <button onClick={handleSubmit}>Apply Filter</button>
+    </form>
+
+    <div>{productsDiv}</div>
     </div>
   )
 }

@@ -32,21 +32,11 @@ async function seed() {
     Product.create({name: 'KR Strikeforce Clear Red Rose Ball', description: 'Get your hands on this unique Clear Red Rose bowling ball from KR. Due to the unique design of this ball it is only available in one weight. This ball is sure to be a hit either on the lanes or on display.', price: 139.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/10695.large.jpg', weight: 9, color: 'multi-color'}),
     Product.create({name: 'KR Strikeforce Grey Camo Spare Ball', description: 'Complete your lineup with a sensational spare ball! This ball is perfect for any lane condition and any bowler!', price: 149.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/14073.large.jpg', weight: 9, color: 'multi-color'}),
 
-
-
-
     Product.create({name: 'KR Strikeforce Hybrid Spare Ball', description: 'Complete your lineup with a sensational spare ball! This ball is perfect for any lane condition and any bowler!', price: 149.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/14071.large.jpg', weight: 9, color: 'one color'}),
     Product.create({name: 'Elite Star Pink Pearl', description: 'This great-looking Elite Star Bowling Ball makes an attractive and durable ball for recreational bowlers. This ball is great for a bowler just starting out and/or for any bowler looking to knock out those spares! Pick out your Elite Star ball today!', price: 79.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/14205.large.jpg', weight: 9, color: 'one color'}),
     Product.create({name: 'Elite Star Blue Pearl', description: 'This great-looking Elite Star Bowling Ball makes an attractive and durable ball for recreational bowlers. This ball is great for a bowler just starting out and/or for any bowler looking to knock out those spares! Pick out your Elite Star ball today!', price: 79.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/14203.large.jpg', weight: 9, color: 'one color'}),
     Product.create({name: 'Elite Star Purple Pearl', description: 'This great-looking Elite Star Bowling Ball makes an attractive and durable ball for recreational bowlers. This ball is great for a bowler just starting out and/or for any bowler looking to knock out those spares! Pick out your Elite Star ball today!', price: 79.99, category: 'ball', imgUrl: 'https://images.bowling.com/large/14207.large.jpg', weight: 9, color: 'one color'}),
 
-
-
-
-
-
-    Product.create({name: '11 lbs Bowling Ball', description: '11 lbs of glory! The aqua blue finish on this ball will keep your game cool.', price: 110.99, category: 'ball', imgUrl: 'https://i.ebayimg.com/images/g/2GIAAOSw0jlivMdk/s-l500.png', weight: 11, color: 'one color'}),
-    Product.create({name: '9 lbs Bowling Ball', description: 'Light weight ball, a good fit for the bowler who doesn\'t need the extra weight to get the job done!', price: 90.99, category: 'ball', imgUrl: 'https://i5.walmartimages.com/asr/a2c261a7-71d0-4f69-a53b-a59bccd7f351_1.37c32be72610e1bdbbf54a1d0dcd9e4e.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF', weight: 9, color: 'one color'}),
 
     //mens shoes
     Product.create({name: '2G kicks men black', description: '2G has come out with a shoe fitted with their latest sole shaping technology!', price: 44.99, category: 'shoe', imgUrl: 'https://images.bowling.com/large/6286.large.jpg', gender: 'men', color: 'one color'}),
@@ -63,11 +53,6 @@ async function seed() {
     Product.create({name: 'KR Strikeforce Mens Aviator Red/Black', description: 'The KR Strikeforce Aviator shoes for men are designed with modern technology to provided ultimate comfort with quality performance and are 40% lighter than comparable rubber outsoled shoes!', price: 44.99, category: 'shoe', imgUrl: 'https://images.bowling.com/large/12163.large.jpg', gender: 'men', color: 'multi-color'}),
     Product.create({name: 'KR Strikeforce Mens Aviator Blue/Black', description: 'The KR Strikeforce Aviator shoes for men are designed with modern technology to provided ultimate comfort with quality performance and are 40% lighter than comparable rubber outsoled shoes!', price: 44.99, category: 'shoe', imgUrl: 'https://images.bowling.com/large/12560.large.jpg', gender: 'men', color: 'multi-color'}),
     
-
-
-
-
-
     //womens shoes
     Product.create({name: '2G kicks women black', description: '2G has come out with a shoe fitted with their latest sole shaping technology!', price: 44.99, category: 'shoe', imgUrl: 'https://images.bowling.com/large/6286.large.jpg', gender: 'women', color: 'one color'}),
     Product.create({name: '2G kicks women charcoal', description: '2G has come out with a shoe fitted with their latest sole shaping technology!', price: 59.99, category: 'shoe', imgUrl: 'https://images.bowling.com/large/14054.large.jpg', gender: 'women', color: 'one color'}),
