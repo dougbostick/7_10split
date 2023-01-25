@@ -95,6 +95,21 @@ async function seed() {
     LineItem.create({orderId: 2, productId: 2, quantity: 2}),
     LineItem.create({orderId: 2, productId: 1, quantity: 2}),
   ])
+  
+  
+
+  Recipe.create({name: 'chicken noodle soup', userId: 1, isBookmarked: true})
+  Ingedients.create({name: 'chicken', recipeId: 1})
+  Ingedients.create({name: 'noodles', recipeId: 1})
+
+  Recipe.findAll({
+    where: {
+      userdId : user.id,
+      isBookmarked: true
+    },
+    include: Ingredients
+  })
+
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${products.length} products`)

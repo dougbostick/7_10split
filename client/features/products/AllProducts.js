@@ -38,7 +38,7 @@ const handleSubmit = (evt) => {
   setView('filtered');
 }
 
-  const allProductsDiv = products ? products.map((product) => {
+  const allProductsDiv = products?.length ? products.map((product) => {
     return (
       <div key={product.id} className='productDiv'>  
       <Link to={`/products/${product.id}`} >

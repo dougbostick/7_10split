@@ -10,13 +10,13 @@ const { userId } = useParams();
 const dispatch = useDispatch();
 const order = useSelector(selectOrder);
 const cart = useSelector(selectCart);
-console.log('CART', cart)
+// console.log('CART', cart)
 useEffect(() => {
     dispatch(fetchOrder(userId)).then((order) => dispatch(fetchCartItems(order.payload.id)))
 }, [dispatch])
 
 const cartDiv = cart?.cart.length ? cart.cart.map((item) => {
-    console.log('CARTDIV', item)
+    // console.log('CARTDIV', item)
     return (
         <div key={item.id}>
             <h1>{item.product.name}</h1>
