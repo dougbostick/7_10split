@@ -10,6 +10,15 @@ export const fetchOrder = createAsyncThunk('getOrder', async (userId) => {
     }
 })
 
+export const checkoutOrder = createAsyncThunk('checkoutOrder', async (orderId) => {
+    try{
+        const res = await axios.put(`/api/orders/${orderId}/checkout`)
+        return res.data;
+    } catch(err){
+        console.log(err);
+    }
+})
+
 //i think these need a separate slice
 export const fetchCartItems = createAsyncThunk('getCartItems', async (orderId) => {
     try{
@@ -48,17 +57,20 @@ export const cartSlice = createSlice({
         builder.addCase(addToCart.fulfilled, (state, action) => {
             state.cart.push(action.payload);
         })
+        builder.addCase(checkoutOrder.fulfilled, (state, action) => {
+            state.order = action.payload;
+        })
     }
 });
 
 export const selectCart = (state) => {
     console.log('SELECT CART', state)
-    return state.cart
+    return state.cart.cart
 };
 
 export const selectOrder = (state) => {
     console.log('SELECT ORDER', state)
-    return state.order
+    return state.cart.order
 };
 
 export default cartSlice.reducer;

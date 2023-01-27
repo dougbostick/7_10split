@@ -3,7 +3,7 @@ const { models: {LineItem, Product }} = require('../db');
 module.exports = router;
 
 router.post('/add', async (req, res, next) => {
-    console.log('REQ', req.body)
+    // console.log('REQ', req.body)
     try{
         const existingLineItem = await LineItem.findOne({
             where: {

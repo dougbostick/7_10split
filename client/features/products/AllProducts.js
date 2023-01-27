@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectProducts, fetchProducts, sortByCategory, selectFilteredProducts } from './allProductsSlice';
 import { selectUser } from '../auth/authSlice'
-import { fetchOrder, selectCart, addToCart } from '../cart/cartSlice';
+import { fetchOrder, selectCart, addToCart, fetchCartItems } from '../cart/cartSlice';
 import { Link } from 'react-router-dom'
 
 export default function AllProducts() {
@@ -27,7 +27,7 @@ const handleAddToCart = (productId) => {
   dispatch(fetchOrder(user.me.id)).then((res) => {
     console.log('handle cart', res.payload);
     const orderId = res.payload.id;
-    dispatch(addToCart({orderId, productId}))
+    dispatch(addToCart({orderId, productId})).then(() => dispatch(fetchCartItems(orderId)))
   });
 }
 

@@ -22,3 +22,14 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+router.put('/:id/checkout', async (req, res, next) => {
+  try{
+    const order = await Order.findByPk(req.params.id);
+    order.status = 'paid';
+    await order.save();
+    res.send(order);
+  } catch(err){
+    next(err);
+  }
+})
