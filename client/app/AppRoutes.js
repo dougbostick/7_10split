@@ -7,6 +7,8 @@ import AllProducts from '../features/products/AllProducts';
 import Cart from '../features/cart/Cart';
 import { me } from './store';
 import SingleProduct from '../features/products/SingleProduct';
+import EditProduct from '../features/products/EditProduct';
+
 
 /**
  * COMPONENT
@@ -16,19 +18,22 @@ const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     dispatch(me());
   }, []);
 
   return (
     <div>
+      
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
           <Route path="/products" element={<AllProducts />} />
           <Route to="/home" element={<Home />} />
           <Route path="/cart/:userId" element={<Cart />} />
-          <Route path="/products/:id" element={< SingleProduct />} />
+          <Route path="/products/:id" element={< SingleProduct />} /> 
+          <Route path='/products/:id/edit' element={< EditProduct />} />  
         </Routes>
       ) : (
         <Routes>

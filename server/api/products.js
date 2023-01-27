@@ -19,3 +19,13 @@ router.get('/:id', async(req, res, next) => {
         next(err);
     }
 })
+
+router.put('/:id/edit', async(req, res, next) => {
+    console.log('REQ', req.body)
+    try{
+        const productToEdit = await Product.findByPk(req.params.id);
+        res.send(await productToEdit.update(req.body));
+    }catch(err){
+        next(err);
+    }
+})
