@@ -12,9 +12,10 @@ export const fetchSingleProduct = createAsyncThunk('getProduct', async (id) => {
 });
 
 export const editSingleProduct = createAsyncThunk('editSingleProduct', async (editObj) => {
-    const { id, name, imgUrl, description, price} = editObj;
+    console.log('EDIT', editObj);
+    const { id, user, name, imgUrl, description, price} = editObj;
     try{
-     const res = await axios.put(`/api/products/${id}/edit`, { name, imgUrl, description, price});
+     const res = await axios.put(`/api/products/${id}/edit`, { user, id, name, imgUrl, description, price: price * 1});
      return res.data;  
     }catch(err){
         console.log(err);

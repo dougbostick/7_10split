@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { models: { Product }} = require('../db');
+const { models: { Product, User }} = require('../db');
 module.exports = router;
 
 router.get('/', async (req, res, next) => {
@@ -21,10 +21,17 @@ router.get('/:id', async(req, res, next) => {
 })
 
 router.put('/:id/edit', async(req, res, next) => {
-    console.log('REQ', req.body)
+    // console.log('REQ', req.body);
+    const isAdmin = req.body.user.me.isAdmin;
+    const {id, name, imgUrl, description, price } = req.body;
     try{
-        const productToEdit = await Product.findByPk(req.params.id);
-        res.send(await productToEdit.update(req.body));
+        if(isAdmin){
+            const productToEdit = await Product.findByPk(id);
+            res.send(await productToEdit.update({ name, imgUrl, description, price }));
+        } else {
+            res.send('could not authenticate admin');
+        }
+      
     }catch(err){
         next(err);
     }

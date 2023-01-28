@@ -31,7 +31,7 @@ useEffect(() => {
 
 const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch(editSingleProduct({id, name, imgUrl, description, price}))
+    dispatch(editSingleProduct({id, user, name, imgUrl, description, price}))
 }
   return (
   <div>
