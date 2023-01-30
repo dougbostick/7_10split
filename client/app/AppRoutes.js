@@ -8,6 +8,7 @@ import Cart from '../features/cart/Cart';
 import { me } from './store';
 import SingleProduct from '../features/products/SingleProduct';
 import EditProduct from '../features/products/EditProduct';
+import OrderHistory from '../features/cart/OrderHistory';
 
 
 /**
@@ -34,6 +35,7 @@ const AppRoutes = () => {
           <Route path="/cart/:userId" element={<Cart />} />
           <Route path="/products/:id" element={< SingleProduct />} /> 
           <Route path='/products/:id/edit' element={< EditProduct />} />  
+          <Route path='/orderHistory' element={<OrderHistory />} />
         </Routes>
       ) : (
         <Routes>

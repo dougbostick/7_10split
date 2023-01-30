@@ -27,7 +27,7 @@ const Navbar = () => {
             </button>
             <Link to='/products'>Products</Link>
             <Link to={`/cart/${user.id}`}>Cart</Link>
-
+            <Link to='/orderhistory'>Order History</Link>
           </div>
         ) : (
           <div>

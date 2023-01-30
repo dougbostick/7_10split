@@ -23,6 +23,7 @@ router.post('/add', async (req, res, next) => {
     }
 })
 
+//find current order
 router.get('/:id', async (req, res, next) => {
     try{
         const cartItems = await LineItem.findAll({where: {orderId: req.params.id}, include: Product });

@@ -4,6 +4,8 @@ const {
 } = require("../db");
 module.exports = router;
 
+
+//find open order
 router.get("/:id", async (req, res, next) => {
   try {
     const openOrder = await Order.findOne({
@@ -22,6 +24,20 @@ router.get("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+router.get('/:id/history', async(req, res, next) => {
+  try{
+    const orderHistory = await Order.findAll({
+      where: {
+        userId: req.params.id,
+        status: 'paid'
+      }
+    })
+    res.send(orderHistory);
+  }catch(err){
+    next(err);
+  }
+})
 
 router.put('/:id/checkout', async (req, res, next) => {
   try{
