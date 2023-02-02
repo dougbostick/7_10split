@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  background-color: rgb(248, 248, 250);
 }
 
 a {
@@ -21,10 +22,126 @@ form div {
 }
 
 .productImg{
-  height: 250px;
-  width: 250px;
+  height: 150px;
+  width: 150px;
+}
+/* .productDiv > .productImg:hover{
+  background-color: dodgerblue;
+} */
+
+.productDiv{
+  width: 315px;
+  height: 315px;
+  list-style: none;
+  margin: 24px;
+  padding: 8px;
+  border: .25px solid rgb(179, 178, 178);
+  /* box-shadow: 12px 12px 2px 1px grey; */
+  line-height: 24px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
 }
 
-.productdiv{
-  list-style: none;
+.prod-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+button{
+  transition: .2s;
+  font-size: 18px;
+  background-color: grey;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 8px;
+}
+
+button:hover{
+  opacity: .8
+}
+
+button:active{
+  transition: .2s;
+  background-color: white;
+  color:grey
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48,
+}
+
+.singleProductDiv{
+  display:flex;
+  justify-content: space-around;
+  background-color: white;
+}
+
+.singleProductImg{
+  height: 300px;
+  width: 300px;
+  margin-right: 82px;
+}
+
+.singleLeft{
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+}
+
+.singleRight{
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex: 1;
+}
+
+.navBar{
+  display: flex;
+  justify-content: space-between;
+}
+
+.rightNav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 22px;
+  /* border: 1px solid red; */
+}
+
+.cartBoxDiv{
+  width: 80%;
+}
+
+.cartBox{
+  border: .5px solid grey;
+  background-color: white;
+  padding: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+.total{
+  font-size: 18px;
 }

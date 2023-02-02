@@ -1,7 +1,7 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { logout } from '../../app/store';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../app/store";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -9,34 +9,50 @@ const Navbar = () => {
   const navigate = useNavigate();
   const logoutAndRedirectHome = () => {
     dispatch(logout());
-    navigate('/login');
+    navigate("/login");
   };
   const user = useSelector((state) => state.auth.me);
   // console.log(user)
 
   return (
     <div>
-      <h1>7-10 Split</h1>
       <nav>
         {isLoggedIn ? (
-          <div>
-            {/* The navbar will show these links after you log in */}
-            <Link to="/home">Home</Link>
-            <button type="button" onClick={logoutAndRedirectHome}>
-              Logout
-            </button>
-            <Link to='/products'>Products</Link>
-            <Link to={`/cart/${user.id}`}>Cart</Link>
-            <Link to='/orderhistory'>Order History</Link>
+          <div className="navBar">
+            <div className="leftNav">
+              <Link to="/home">
+                {" "}
+                <h1>7-10 Split</h1>
+              </Link>
+            </div>
+            <div className="rightNav">
+              <button type="button" onClick={logoutAndRedirectHome}>
+                Logout
+              </button>
+              <Link to="/products">Products</Link>
+              <Link to={`/cart/${user.id}`}>
+                <span class="material-symbols-outlined" style={{fontSize: '38px'}}>
+                  shopping_cart_checkout
+                </span>
+              </Link>
+              <Link to="/orderhistory">Order History</Link>
+            </div>
           </div>
         ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-            <Link to='/products'>Products</Link>
-            <Link to='/cart'>Cart</Link>
-
+          <div className="navBar">
+            <div className="leftNav">
+              <h1>7-10 Split</h1>
+            </div>
+            <div className="rightNav">
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign Up</Link>
+              <Link to="/products">Products</Link>
+              <Link to="/cart">
+                <span class="material-symbols-outlined" style={{fontSize: '38px'}}>
+                  shopping_cart_checkout
+                </span>
+              </Link>
+            </div>
           </div>
         )}
       </nav>

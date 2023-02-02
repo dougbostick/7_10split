@@ -67,7 +67,7 @@ async function seed() {
     Product.create({name: 'KR Strikeforce Womens Lux Leopard', description: 'The KR Strikeforce Women\'s LUX brings you the premium level of comfort and style! The lightweight knitted fabric allows for breathability and a soft comfortable fit. ', price: 51.99, category: 'shoe', imgUrl: 'https://images.bowling.com/large/13911.large.jpg', gender: 'women', color: 'multi-color'}),
     Product.create({name: 'KR Strikeforce Womens Maui Grey', description: 'KR Strikeforce brings you the women\'s Maui shoe which features superior comfort! The lightweight knit fabric and Feather Lite outsoles will have you feeling your walking in paradise!', price: 52.99, category: 'shoe', imgUrl: 'https://images.bowling.com/large/13399.large.jpg', gender: 'women', color: 'multi-color'}),
     Product.create({name: 'Linds Womens Monarch blue/white', description: 'The Monarch Women\'s rental shoes are made for quality and comfort for the bowler. Features include an upper made with split cowhide leather, a padded collar and tongue, a cushioned insole for comfort, are fully lined, premium leather slide soles with deep channels to accommodate heavy duty stitching though the upper and stitched and cemented smooth rubber heels.', price: 38.99, category: 'shoe', imgUrl: 'https://images.bowling.com/large/7073.large.jpg', gender: 'women', color: 'multi-color'}),
-    Product.create({name: 'KR Strikeforce Womens Nova Lite Ash/Hot Pink', description: 'This modern designed KR Strikeforce Nova Lite shoe features KR Kanvas uppers that are easier to clean and maintain as well as a silky smooth interior liner that provides better comfort and fit.', price: 54.99, category: 'shoe', imgUrl: 'https://images.bowling.com/large/12070.large.jpg', gender: 'women', color: 'multi-color'}),
+    Product.create({name: 'KR Strikeforce Nova Lite Ash/Hot Pink', description: 'This modern designed KR Strikeforce Nova Lite shoe features KR Kanvas uppers that are easier to clean and maintain as well as a silky smooth interior liner that provides better comfort and fit.', price: 54.99, category: 'shoe', imgUrl: 'https://images.bowling.com/large/12070.large.jpg', gender: 'women', color: 'multi-color'}),
 
 
 
@@ -95,21 +95,6 @@ async function seed() {
     LineItem.create({orderId: 2, productId: 2, quantity: 2}),
     LineItem.create({orderId: 2, productId: 1, quantity: 2}),
   ])
-  
-  
-
-  Recipe.create({name: 'chicken noodle soup', userId: 1, isBookmarked: true})
-  Ingedients.create({name: 'chicken', recipeId: 1})
-  Ingedients.create({name: 'noodles', recipeId: 1})
-
-  Recipe.findAll({
-    where: {
-      userdId : user.id,
-      isBookmarked: true
-    },
-    include: Ingredients
-  })
-
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${products.length} products`)
