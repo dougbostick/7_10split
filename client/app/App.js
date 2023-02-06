@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../features/navbar/Navbar";
 import AppRoutes from "./AppRoutes";
+import Footer from "../features/footer/Footer";
 
 const App = () => {
   return (
@@ -8,8 +9,11 @@ const App = () => {
       <div className="top">
         <Navbar />
       </div>
-      <div className="bottom">
+      <div className="middle">
         <AppRoutes />
+      </div>
+      <div className='bottom'>
+        <Footer />
       </div>
     </div>
   );

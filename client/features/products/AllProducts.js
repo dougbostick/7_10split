@@ -5,6 +5,7 @@ import {
   fetchProducts,
   sortByCategory,
   selectFilteredProducts,
+  searchProducts
 } from "./allProductsSlice";
 import { selectUser } from "../auth/authSlice";
 import {
@@ -18,6 +19,7 @@ import { Link } from "react-router-dom";
 export default function AllProducts() {
   const [category, setCategory] = useState("");
   const [view, setView] = useState("all");
+  const [search, setSearch] = useState("");
 
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
@@ -50,6 +52,23 @@ export default function AllProducts() {
     setView("filtered");
   };
 
+  // const handleSearch= (evt) => {
+  //   evt.preventDefault();
+  //   console.log(search);
+  //   dispatch(searchProducts(search));
+  //   setView("filtered");
+  // }
+
+  useEffect(() => {
+    if(search.length){
+      dispatch(searchProducts(search));
+      setView("filtered");
+    } else {
+      setView("all")
+    }
+
+  }, [search])
+
   const allProductsDiv = products?.length
     ? products.map((product) => {
         return (
@@ -75,12 +94,10 @@ export default function AllProducts() {
               <img src={product.imgUrl} className="productImg" />
             </Link>
             <div>{product.name}</div>
-            <div className="price">
-              ${product.price}
-              <button onClick={() => handleAddToCart(product.id)}>
-                Add To Cart
-              </button>
-            </div>
+            <div className="price">${product.price}</div>
+            <button onClick={() => handleAddToCart(product.id)}>
+              Add To Cart
+            </button>
           </div>
         );
       })
@@ -89,15 +106,20 @@ export default function AllProducts() {
   const productsDiv = view === "all" ? allProductsDiv : filteredProductsDiv;
   return (
     <div>
-      <h1>All Products</h1>
-      <form>
-        <select onChange={(e) => setCategory(e.target.value)}>
+      <div className='filters'>
+      <form className='prodSearch'>
+        <input className='searchInput' placeholder='search products...' type='text' value={search} onChange={ e => setSearch(e.target.value)}/>
+      </form>
+      <form className='prodFilter'>
+        <select className='searchInput' onChange={(e) => setCategory(e.target.value)}>
           <option value="all">All Products</option>
           <option value="ball">Bowling Balls</option>
           <option value="shoe">Bowlings Shoes</option>
         </select>
-        <button onClick={handleSubmit}>Apply Filter</button>
+        <button onClick={handleSubmit} className='searchInput'>Apply Filter</button>
       </form>
+      </div>
+      
 
       <div className="prod-container">{productsDiv}</div>
     </div>

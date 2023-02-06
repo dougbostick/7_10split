@@ -9,7 +9,17 @@ const Home = (props) => {
 
   return (
     <div>
+      <div>
       <h3>Welcome, {username}</h3>
+      </div>
+      <div>
+        <hr/>
+        Ball of the week
+      </div>
+      <div>
+      <hr/>
+        Shoe of the week
+      </div>
     </div>
   );
 };

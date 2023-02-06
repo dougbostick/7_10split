@@ -1,6 +1,7 @@
 body {
   font-family: sans-serif;
   background-color: rgb(248, 248, 250);
+  margin: 0;
 }
 
 a {
@@ -144,4 +145,63 @@ button:active{
 
 .total{
   font-size: 18px;
+}
+
+.formDiv{
+  border: 1px solid red;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.filters{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.searchInput{
+  font-size: 20px;
+  padding: 8px;
+  margin: 8px;
+}
+
+.prodFilter{
+  margin-right: 128px;
+}
+
+.prodSearch{
+  margin-right: 148px;
+}
+
+.footer{
+  border: 1px solid purple;
+  background-color: grey;
+  height: 100%;
+  width: 100%;
+}
+
+.actualApp{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.top{
+  flex: 1;
+  margin: 8px;
+
+}
+
+.middle{
+  flex:4;
+  margin: 8px;
+}
+
+.bottom{
+  flex: 1;
+  min-height: 80px;
+  margin: 0;
 }
