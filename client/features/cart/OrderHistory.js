@@ -22,30 +22,13 @@ export default function OrderHistory() {
   const paidItemsDiv = paidItems?.length
     ? paidItems.map((orderInfo) => {
         const date = Date(orderInfo.order.updatedAt).slice(0, 25);
-
-//         return (
-//     <div key={item.id} className="cartBoxDiv">
-//       <h1>{item.product.name}</h1>
-//       <div className="cartBox">
-//         <img src={item.product.imgUrl} className="productImg" />
-//         <div>Quantity: {item.quantity}</div>
-//         <div className="total">
-//           Total: ${item.quantity * item.product.price}
-//           <div style={{ marginTop: "8px", fontSize: '16px' }}>
-//             ${item.product.price} x {item.quantity}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-
         return (
-          <div>
+          <div key={orderInfo.id}>
             <h2 style={{marginLeft: '28px'}}>Purchased on {date}</h2>
             {orderInfo.items.map((item) => {
              return (
-                <div className="cartDiv">
-                <div key={item.id} className="cartBoxDiv">
+                <div className="cartDiv" key={item.id}>
+                <div  className="cartBoxDiv">
                   <div className="cartBox" style={{marginBottom: '8px'}}>
                     <h4>{item.product.name}</h4>
                     <div>Quantity: {item.quantity}</div>

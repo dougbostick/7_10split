@@ -32,3 +32,18 @@ router.get('/:id', async (req, res, next) => {
         next(err);
     }
 })
+
+
+router.put('/update', async (req, res, next) => {
+    try{
+        console.log('update body', req.body);
+        const itemToUpdate = await LineItem.findOne({
+            where: {
+                id: req.body.itemId
+            }
+        })
+        res.send(await itemToUpdate.update(req.body))
+    } catch(err){
+        next(err);
+    }
+})

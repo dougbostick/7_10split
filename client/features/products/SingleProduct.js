@@ -44,7 +44,7 @@ export default function SingleProduct() {
         <div style={{ fontSize: "22px" }}>${singleProduct.price}</div>
 
         <form>
-          <label for='quantity'>Qunantity:</label>
+          <label htmlFor='quantity'>Qunantity:</label>
           <input name='quantity' type="number" min={1} max={100} defaultValue={1} onChange={ e => setQuantity(e.target.value)}/>
         </form>
 

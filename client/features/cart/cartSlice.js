@@ -19,11 +19,10 @@ export const checkoutOrder = createAsyncThunk('checkoutOrder', async (orderId) =
     }
 })
 
-//i think these need a separate slice
 export const fetchCartItems = createAsyncThunk('getCartItems', async (orderId) => {
     try{
         const res = await axios.get(`/api/lineItems/${orderId}`);
-        console.log('FETCH CART', res.data)
+        // console.log('FETCH CART', res.data)
         return res.data;
     } catch(err){
         console.log(err);
@@ -53,17 +52,29 @@ export const fetchOrderHistory = createAsyncThunk('fetchOrderHistory', async(use
 
 export const fetchPaidItems = createAsyncThunk('fetchPaidItems', async (orderArr) => {
     try{
-    console.log('ORder ARR', orderArr)
+    // console.log('ORder ARR', orderArr)
 
         const paidItems = [];
         for(const order of orderArr){
             const orderId = order.id;
-            console.log('Order Id', orderId)
+            // console.log('Order Id', orderId)
             const items = await axios.get(`/api/lineItems/${orderId}`);
-            console.log('ITEMS', items)
+            // console.log('ITEMS', items)
             paidItems.push({order, items: items.data});
         }
         return paidItems;
+    } catch(err){
+        console.log(err);
+    }
+})
+
+export const updateQuantityAsync = createAsyncThunk('updateQuantity', async (updateObj) => {
+    try{
+        // console.log(updateObj)
+        const {quantity, itemId} = updateObj;
+        const res = await axios.put('/api/lineItems/update', {quantity: quantity * 1, itemId});
+        console.log(res.data)
+        return res.data;
     } catch(err){
         console.log(err);
     }
@@ -97,16 +108,20 @@ export const cartSlice = createSlice({
         builder.addCase(fetchPaidItems.fulfilled, (state, action) => {
             state.paidItems = action.payload;
         })
+        builder.addCase(updateQuantityAsync.fulfilled, (state, action) => {
+            const itemToUpdate = state.cart.find(item => item.id === action.payload.id);
+            itemToUpdate.quantity = action.payload.quantity;
+        })
     }
 });
 
 export const selectCart = (state) => {
-    console.log('SELECT CART', state)
+    // console.log('SELECT CART', state)
     return state.cart.cart
 };
 
 export const selectOrder = (state) => {
-    console.log('SELECT ORDER', state)
+    // console.log('SELECT ORDER', state)
     return state.cart.order
 };
 

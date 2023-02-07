@@ -6,6 +6,7 @@ import {
   selectCart,
   selectOrder,
   checkoutOrder,
+  updateQuantityAsync
 } from "./cartSlice";
 import { useParams } from "react-router-dom";
 
@@ -15,26 +16,42 @@ export default function Cart() {
   const dispatch = useDispatch();
   const order = useSelector(selectOrder);
   const cart = useSelector(selectCart);
-  console.log("CART", cart);
-  
+  // console.log("CART", cart);
+
   useEffect(() => {
     dispatch(fetchOrder(userId)).then((order) =>
       dispatch(fetchCartItems(order.payload.id))
     );
   }, [dispatch]);
 
+  const updateQuantity = (quantity, itemId) => {
+    console.log("UPDATE", quantity, itemId);
+    dispatch(updateQuantityAsync({quantity, itemId}))
+  }
+
   const cartDiv = cart?.length
     ? cart.map((item) => {
-        // console.log('CARTDIV', item)
+        console.log('CARTDIV', item)
         return (
           <div key={item.id} className="cartBoxDiv">
             <h3>{item.product.name}</h3>
             <div className="cartBox">
               <img src={item.product.imgUrl} className="productImg" />
-              <div>Quantity: {item.quantity}</div>
+              {/* <div>Quantity: {item.quantity}</div> */}
+              <form>
+                <label htmlFor="quantity">Qunantity:</label>
+                <input
+                  name="quantity"
+                  type="number"
+                  min={1}
+                  max={100}
+                  defaultValue={item.quantity}
+                  onChange={(e) => updateQuantity(e.target.value, item.id)}
+                />
+              </form>
               <div className="total">
-                Total: ${item.quantity * item.product.price}
-                <div style={{ marginTop: "8px", fontSize: '16px' }}>
+                Total: ${Math.round(item.quantity * item.product.price * 100) / 100}
+                <div style={{ marginTop: "8px", fontSize: "16px" }}>
                   ${item.product.price} x {item.quantity}
                 </div>
               </div>
@@ -55,7 +72,9 @@ export default function Cart() {
       <h1>{user.username}'s cart</h1>
       <div className="cartDiv">
         {order.status === "pending" ? cartDiv : "you have already checkedout"}
-        <button onClick={handleCheckout} style={{marginTop: '12px'}}>Checkout</button>
+        <button onClick={handleCheckout} style={{ marginTop: "12px" }}>
+          Checkout
+        </button>
       </div>
     </div>
   );

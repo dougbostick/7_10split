@@ -31,7 +31,7 @@ const Navbar = () => {
               </button>
               <Link to="/products">Products</Link>
               <Link to={`/cart/${user.id}`}>
-                <span class="material-symbols-outlined" style={{fontSize: '38px'}}>
+                <span className="material-symbols-outlined" style={{fontSize: '38px'}}>
                   shopping_cart_checkout
                 </span>
               </Link>
@@ -48,7 +48,7 @@ const Navbar = () => {
               <Link to="/signup">Sign Up</Link>
               <Link to="/products">Products</Link>
               <Link to="/cart">
-                <span class="material-symbols-outlined" style={{fontSize: '38px'}}>
+                <span className="material-symbols-outlined" style={{fontSize: '38px'}}>
                   shopping_cart_checkout
                 </span>
               </Link>
