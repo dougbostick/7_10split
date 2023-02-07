@@ -39,7 +39,7 @@ export default function AllProducts() {
     dispatch(fetchOrder(user.me.id)).then((res) => {
       console.log("handle cart", res.payload);
       const orderId = res.payload.id;
-      dispatch(addToCart({ orderId, productId })).then(() =>
+      dispatch(addToCart({ orderId, productId, quantity: 1 })).then(() =>
         dispatch(fetchCartItems(orderId))
       );
     });

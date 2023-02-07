@@ -31,9 +31,9 @@ export const fetchCartItems = createAsyncThunk('getCartItems', async (orderId) =
 })
 
 export const addToCart = createAsyncThunk('addToCart', async (addObject) => {
-    const { orderId, productId } = addObject;
+    const { orderId, productId, quantity } = addObject;
     try{
-        const res = await axios.post('/api/lineItems/add', {orderId, productId, quantity: 1})
+        const res = await axios.post('/api/lineItems/add', {orderId, productId, quantity: quantity * 1})
         return res.data;
     } catch(err){
         console.log(err);
