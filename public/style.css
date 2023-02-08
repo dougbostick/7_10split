@@ -176,6 +176,46 @@ button:active{
   margin-right: 188px;
 }
 
+.homePage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.featureDiv{
+  border: 1px solid black;
+  padding: 8px;
+  margin: 12px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 85%;
+}
+
+.featureInfo{
+  font-style: italic;
+}
+
+.featureDescription{
+  max-width: 25%;
+  font-style: italic;
+}
+
+.featureItem{
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: bold;
+  align-items: center;
+}
+
+.featImg{
+  width: 200px;
+  height: 200px;
+}
+
 .footer{
   border: 1px solid purple;
   background-color: grey;
@@ -204,4 +244,22 @@ button:active{
   flex: 1;
   min-height: 80px;
   margin: 0;
+}
+
+.explosion{
+  height: 345px;
+  width: 345px;
+}
+
+.expoDiv{
+  position: relative;
+}
+
+.expoText{
+  position: absolute;
+  top: 40%;
+  left: 32%;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
 }
