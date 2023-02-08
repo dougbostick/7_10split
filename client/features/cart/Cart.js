@@ -6,7 +6,7 @@ import {
   selectCart,
   selectOrder,
   checkoutOrder,
-  updateQuantityAsync
+  updateQuantityAsync,
 } from "./cartSlice";
 import { useParams } from "react-router-dom";
 
@@ -26,40 +26,8 @@ export default function Cart() {
 
   const updateQuantity = (quantity, itemId) => {
     console.log("UPDATE", quantity, itemId);
-    dispatch(updateQuantityAsync({quantity, itemId}))
-  }
-
-  const cartDiv = cart?.length
-    ? cart.map((item) => {
-        console.log('CARTDIV', item)
-        return (
-          <div key={item.id} className="cartBoxDiv">
-            <h3>{item.product.name}</h3>
-            <div className="cartBox">
-              <img src={item.product.imgUrl} className="productImg" />
-              {/* <div>Quantity: {item.quantity}</div> */}
-              <form>
-                <label htmlFor="quantity">Qunantity:</label>
-                <input
-                  name="quantity"
-                  type="number"
-                  min={1}
-                  max={100}
-                  defaultValue={item.quantity}
-                  onChange={(e) => updateQuantity(e.target.value, item.id)}
-                />
-              </form>
-              <div className="total">
-                Total: ${Math.round(item.quantity * item.product.price * 100) / 100}
-                <div style={{ marginTop: "8px", fontSize: "16px" }}>
-                  ${item.product.price} x {item.quantity}
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      })
-    : "no cart items";
+    dispatch(updateQuantityAsync({ quantity, itemId }));
+  };
 
   const handleCheckout = () => {
     // console.log('ORDER', order)
@@ -67,14 +35,61 @@ export default function Cart() {
       dispatch(fetchCartItems(order.payload.id))
     );
   };
+
+  const cartDiv = cart?.length ? (
+    cart.map((item) => {
+      console.log("CARTDIV", item);
+      return (
+        <div key={item.id} className="cartBoxDiv">
+          <h3>{item.product.name}</h3>
+          <div className="cartBox">
+            <img src={item.product.imgUrl} className="productImg" />
+            <form>
+              <label htmlFor="quantity">Qunantity:</label>
+              <input
+                name="quantity"
+                type="number"
+                min={1}
+                max={100}
+                defaultValue={item.quantity}
+                onChange={(e) => updateQuantity(e.target.value, item.id)}
+              />
+            </form>
+            <div className="total">
+              Total: $
+              {Math.round(item.quantity * item.product.price * 100) / 100}
+              <div style={{ marginTop: "8px", fontSize: "16px" }}>
+                ${item.product.price} x {item.quantity}
+              </div>
+            </div>
+          </div>
+          <button onClick={handleCheckout} style={{ marginTop: "12px" }}>
+            Checkout
+          </button>
+        </div>
+      );
+    })
+  ) : (
+    <div className="gutterMessage">
+      <h3>No Cart Items</h3>
+      <img src={"/images/gutterball.jpeg"}  style={{width: '350px', height: '250px'}}/>
+    </div>
+  );
+
+
   return (
     <div>
       <h1>{user.username}'s cart</h1>
       <div className="cartDiv">
-        {order.status === "pending" ? cartDiv : "you have already checkedout"}
-        <button onClick={handleCheckout} style={{ marginTop: "12px" }}>
+        {order.status === "pending" ? cartDiv :  (
+    <div>
+      <h3>You Have Already Checked Out</h3>
+      <img src={"/images/gutterball.jpeg"} style={{width: '250px', height: '250px'}} />
+    </div>
+  )}
+        {/* <button onClick={handleCheckout} style={{ marginTop: "12px" }}>
           Checkout
-        </button>
+        </button> */}
       </div>
     </div>
   );

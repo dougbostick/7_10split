@@ -5,7 +5,7 @@ import {
   fetchProducts,
   sortByCategory,
   selectFilteredProducts,
-  searchProducts
+  searchProducts,
 } from "./allProductsSlice";
 import { selectUser } from "../auth/authSlice";
 import {
@@ -60,14 +60,13 @@ export default function AllProducts() {
   // }
 
   useEffect(() => {
-    if(search.length){
+    if (search.length) {
       dispatch(searchProducts(search));
       setView("filtered");
     } else {
-      setView("all")
+      setView("all");
     }
-
-  }, [search])
+  }, [search]);
 
   const allProductsDiv = products?.length
     ? products.map((product) => {
@@ -105,22 +104,31 @@ export default function AllProducts() {
 
   const productsDiv = view === "all" ? allProductsDiv : filteredProductsDiv;
   return (
-    <div>
-      <div className='filters'>
-      <form className='prodSearch'>
-        <input className='searchInput' placeholder='search products...' type='text' value={search} onChange={ e => setSearch(e.target.value)}/>
-      </form>
-      <form className='prodFilter'>
-        <select className='searchInput' onChange={(e) => setCategory(e.target.value)}>
-          <option value="all">All Products</option>
-          <option value="ball">Bowling Balls</option>
-          <option value="shoe">Bowlings Shoes</option>
-        </select>
-        <button onClick={handleSubmit} className='searchInput'>Apply Filter</button>
-      </form>
+    <div >
+      <div className="filters">
+        <form className="prodSearch">
+          <input
+            className="searchInput"
+            placeholder="search products..."
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </form>
+        <form className="prodFilter">
+          <select
+            className="searchInput"
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="all">All Products</option>
+            <option value="ball">Bowling Balls</option>
+            <option value="shoe">Bowlings Shoes</option>
+          </select>
+          <button onClick={handleSubmit} className="searchInput">
+            Apply Filter
+          </button>
+        </form>
       </div>
-      
-
       <div className="prod-container">{productsDiv}</div>
     </div>
   );

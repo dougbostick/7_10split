@@ -32,6 +32,17 @@ const Home = () => {
 
   return (
     <div className="homePage">
+      <div className="welcome">
+        Welcome, {username}
+      </div>
+      <div className="mission">
+        <p>
+          "Here at 7-10 Split, we aim to provide a top notch shopping experience
+          for all your bowling needs. We've been voted #1 best online store for
+          bowling 15 years in a row. Thank you to our loyal customers and
+          welcome! Let's bowl!" -Sole Engineer, Doug Bostick
+        </p>
+      </div>
       <div className="featureDiv">
         <div className="featureInfo">
           <h3>Featured Ball</h3>
@@ -84,12 +95,11 @@ const Home = () => {
         <div className="featureItem">
           {featuredShoe.name}
           <Link to={`/products/${featuredShoe.id}`}>
-
-          <img
-            src={featuredShoe.imgUrl}
-            className="featImg"
-            style={{ marginTop: "18px" }}
-          />
+            <img
+              src={featuredShoe.imgUrl}
+              className="featImg"
+              style={{ marginTop: "18px" }}
+            />
           </Link>
         </div>
       </div>

@@ -29,13 +29,30 @@ const Navbar = () => {
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
-              <Link to="/products">Products</Link>
+              <Link to="/products">
+                <span
+                  class="material-symbols-outlined"
+                  style={{ fontSize: "38px" }}
+                >
+                  shopping_bag
+                </span>
+              </Link>
               <Link to={`/cart/${user.id}`}>
-                <span className="material-symbols-outlined" style={{fontSize: '38px'}}>
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: "38px" }}
+                >
                   shopping_cart_checkout
                 </span>
               </Link>
-              <Link to="/orderhistory">Order History</Link>
+              <Link to="/orderhistory">
+                <span
+                  class="material-symbols-outlined"
+                  style={{ fontSize: "38px" }}
+                >
+                  insights
+                </span>
+              </Link>
             </div>
           </div>
         ) : (
@@ -48,7 +65,10 @@ const Navbar = () => {
               <Link to="/signup">Sign Up</Link>
               <Link to="/products">Products</Link>
               <Link to="/cart">
-                <span className="material-symbols-outlined" style={{fontSize: '38px'}}>
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: "38px" }}
+                >
                   shopping_cart_checkout
                 </span>
               </Link>

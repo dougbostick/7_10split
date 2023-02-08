@@ -50,6 +50,7 @@ form div {
 .prod-container{
   display: flex;
   flex-wrap: wrap;
+  margin-left: 100px;
 }
 
 
@@ -143,6 +144,13 @@ button:active{
   /* border: 1px solid red; */
 }
 
+.gutterMessage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .total{
   font-size: 18px;
 }
@@ -156,10 +164,12 @@ button:active{
   align-items: center;
 }
 
+
 .filters{
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-left: 70px;
 }
 
 .searchInput{
@@ -191,6 +201,31 @@ button:active{
   align-items: center;
   justify-content: space-evenly;
   width: 85%;
+}
+
+.welcome{
+  align-self: flex-start;
+  margin-left: 100px;
+  font-weight: bold;
+  font-size: 24px;
+  font-style: italic;
+  text-shadow: 1px 1px 1px red;
+  color: black;
+}
+
+.mission{
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  font-style: italic;
+  /* border: 1px solid black; */
+  padding: 20px;
+  margin: 12px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 83%;
 }
 
 .featureInfo{
