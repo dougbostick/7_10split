@@ -275,11 +275,26 @@ button:active{
 }
 
 .footer{
-  border: 1px solid purple;
+  /* border: 1px solid purple; */
   background-color: grey;
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
+
+.footerText{
+  font-style: italic;
+}
+
+
+.footerImg{
+  width: 65px;
+  height: 65px;
+  margin: 8px;
+}
+
 
 .actualApp{
   display: flex;

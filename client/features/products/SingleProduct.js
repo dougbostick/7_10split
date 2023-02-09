@@ -13,21 +13,17 @@ export default function SingleProduct() {
   const singleProduct = useSelector(selectSingleProduct);
   const user = useSelector(selectUser);
   const isAdmin = useSelector((state) => !!state.auth.me.isAdmin);
-  console.log(isAdmin);
-  // console.log(user)
 
   const [quantity, setQuantity] = useState(1);
-  console.log(quantity);
+
 
   useEffect(() => {
     dispatch(fetchSingleProduct(id));
   }, [dispatch]);
 
   const handleAddToCart = (productId) => {
-    // console.log(productId)
     if (!user.me.id) return "not logged in";
     dispatch(fetchOrder(user.me.id)).then((res) => {
-      //   console.log('handle cart', res.payload);
       const orderId = res.payload.id;
       dispatch(addToCart({ orderId, productId, quantity }));
     });

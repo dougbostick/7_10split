@@ -4,7 +4,6 @@ import axios from 'axios';
 export const fetchSingleProduct = createAsyncThunk('getProduct', async (id) => {
     try{
         const res = await axios.get(`/api/products/${id}`);
-        console.log('FETCH', res.data)
         return res.data;
     } catch (err){
         console.log(err);
@@ -12,7 +11,6 @@ export const fetchSingleProduct = createAsyncThunk('getProduct', async (id) => {
 });
 
 export const editSingleProduct = createAsyncThunk('editSingleProduct', async (editObj) => {
-    console.log('EDIT', editObj);
     const { id, user, name, imgUrl, description, price} = editObj;
     try{
      const res = await axios.put(`/api/products/${id}/edit`, { user, id, name, imgUrl, description, price: price * 1});
@@ -28,7 +26,6 @@ export const productSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchSingleProduct.fulfilled, (state, action) => {
-            console.log('BUILDER', action.payload)
             return action.payload;
         })
         builder.addCase(editSingleProduct.fulfilled, (state, action) => {
@@ -38,7 +35,6 @@ export const productSlice = createSlice({
 })
 
 export const selectSingleProduct = (state) => {
-    console.log('SELECT PRODUCTS', state)
     return state.singleProduct;
 }
 
