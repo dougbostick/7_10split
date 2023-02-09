@@ -26,12 +26,12 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="rightNav">
-              <button type="button" onClick={logoutAndRedirectHome}>
-                Logout
+              <button type="button" onClick={logoutAndRedirectHome} className='logoutBtn'>
+                <span className="material-symbols-outlined">logout</span>
               </button>
               <Link to="/products">
                 <span
-                  class="material-symbols-outlined"
+                  className="material-symbols-outlined"
                   style={{ fontSize: "38px" }}
                 >
                   shopping_bag
@@ -47,10 +47,10 @@ const Navbar = () => {
               </Link>
               <Link to="/orderhistory">
                 <span
-                  class="material-symbols-outlined"
+                  className="material-symbols-outlined"
                   style={{ fontSize: "38px" }}
                 >
-                  insights
+                  export_notes
                 </span>
               </Link>
             </div>
@@ -58,18 +58,20 @@ const Navbar = () => {
         ) : (
           <div className="navBar">
             <div className="leftNav">
-              <h1>7-10 Split</h1>
+              <Link to="/home">
+                {" "}
+                <h1>7-10 Split</h1>
+              </Link>
             </div>
             <div className="rightNav">
               <Link to="/login">Login</Link>
               <Link to="/signup">Sign Up</Link>
-              <Link to="/products">Products</Link>
-              <Link to="/cart">
+              <Link to="/products">
                 <span
                   className="material-symbols-outlined"
                   style={{ fontSize: "38px" }}
                 >
-                  shopping_cart_checkout
+                  shopping_bag
                 </span>
               </Link>
             </div>

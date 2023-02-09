@@ -7,6 +7,7 @@ import {
   selectOrder,
   checkoutOrder,
   updateQuantityAsync,
+  removeFromCart
 } from "./cartSlice";
 import { useParams } from "react-router-dom";
 
@@ -30,15 +31,17 @@ export default function Cart() {
   };
 
   const handleCheckout = () => {
-    // console.log('ORDER', order)
     dispatch(checkoutOrder(order.id)).then((order) =>
       dispatch(fetchCartItems(order.payload.id))
     );
   };
 
+  const handleDelete = (id) => {
+    dispatch(removeFromCart(id))
+  }
   const cartDiv = cart?.length ? (
     cart.map((item) => {
-      console.log("CARTDIV", item);
+      // console.log("CARTDIV", item);
       return (
         <div key={item.id} className="cartBoxDiv">
           <h3>{item.product.name}</h3>
@@ -62,34 +65,42 @@ export default function Cart() {
                 ${item.product.price} x {item.quantity}
               </div>
             </div>
+
+            <span style={{cursor: 'pointer'}}className="material-symbols-outlined" onClick={() => handleDelete(item.id)}>delete</span>
           </div>
-          <button onClick={handleCheckout} style={{ marginTop: "12px" }}>
-            Checkout
-          </button>
         </div>
       );
     })
   ) : (
     <div className="gutterMessage">
       <h3>No Cart Items</h3>
-      <img src={"/images/gutterball.jpeg"}  style={{width: '350px', height: '250px'}}/>
+      <img
+        src={"/images/gutterball.jpeg"}
+        style={{ width: "350px", height: "250px" }}
+      />
     </div>
   );
-
 
   return (
     <div>
       <h1>{user.username}'s cart</h1>
       <div className="cartDiv">
-        {order.status === "pending" ? cartDiv :  (
-    <div>
-      <h3>You Have Already Checked Out</h3>
-      <img src={"/images/gutterball.jpeg"} style={{width: '250px', height: '250px'}} />
-    </div>
-  )}
-        {/* <button onClick={handleCheckout} style={{ marginTop: "12px" }}>
-          Checkout
-        </button> */}
+        {order.status === "pending" ? (
+          cartDiv
+        ) : (
+          <div className="gutterMessage">
+            <h3>You Have Already Checked Out</h3>
+            <img
+              src={"/images/gutterball.jpeg"}
+              style={{ width: "350px", height: "250px" }}
+            />
+          </div>
+        )}
+        {cart?.length && order.status === "pending" ? (
+          <button onClick={handleCheckout} style={{ marginTop: "12px" }}>
+            Checkout
+          </button>
+        ) : null}
       </div>
     </div>
   );

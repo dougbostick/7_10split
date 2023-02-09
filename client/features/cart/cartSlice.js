@@ -39,6 +39,16 @@ export const addToCart = createAsyncThunk('addToCart', async (addObject) => {
     }
 })
 
+export const removeFromCart = createAsyncThunk('removeFromCart', async (lineItemId) => {
+    try{
+        const res = await axios.delete(`/api/lineItems/${lineItemId}`);
+        console.log(res.data)
+        return res.data;
+    } catch(err){
+        console.log(err);
+    }
+})
+
 export const fetchOrderHistory = createAsyncThunk('fetchOrderHistory', async(userId) => {
     try{
         const res = await axios.get(`/api/orders/${userId}/history`);
@@ -53,7 +63,6 @@ export const fetchOrderHistory = createAsyncThunk('fetchOrderHistory', async(use
 export const fetchPaidItems = createAsyncThunk('fetchPaidItems', async (orderArr) => {
     try{
     // console.log('ORder ARR', orderArr)
-
         const paidItems = [];
         for(const order of orderArr){
             const orderId = order.id;
@@ -98,6 +107,10 @@ export const cartSlice = createSlice({
         })
         builder.addCase(addToCart.fulfilled, (state, action) => {
             state.cart.push(action.payload);
+        })
+        builder.addCase(removeFromCart.fulfilled, (state, action) => {
+           state.cart = state.cart.filter((item) => item.id !== action.payload.id
+            )
         })
         builder.addCase(checkoutOrder.fulfilled, (state, action) => {
             state.order = action.payload;

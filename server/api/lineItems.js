@@ -23,6 +23,17 @@ router.post('/add', async (req, res, next) => {
     }
 })
 
+router.delete('/:id', async(req, res, next) => {
+    console.log('PARAMS', req.params.id);
+    try{
+        const itemTodelete = await LineItem.findByPk(req.params.id)
+        await itemTodelete.destroy();
+        res.send(itemTodelete)
+    } catch(err){
+        next(err);
+    }
+})
+
 //find current order
 router.get('/:id', async (req, res, next) => {
     try{

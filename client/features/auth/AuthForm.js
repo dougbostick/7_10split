@@ -22,18 +22,20 @@ const AuthForm = ({ name, displayName }) => {
 
   return (
     <div className='formDiv'>
-      <form onSubmit={handleSubmit} name={name}>
+      <img src='/images/twoBowlers.jpeg' className='loginImg'/>
+      <h1 style={{textAlign: 'center', lineHeight: '48px'}}>Login or Sign Up to browse <br/>our AMAZING DEALS!</h1>
+      <form onSubmit={handleSubmit} name={name} className='loginForm'>
         <div>
           <label htmlFor="username">
             <small>Username</small>
           </label>
-          <input name="username" type="text" />
+          <input name="username" type="text" style={{fontSize: '20px'}}/>
         </div>
         <div>
           <label htmlFor="password">
             <small>Password</small>
           </label>
-          <input name="password" type="password" />
+          <input name="password" type="password" style={{fontSize: '20px'}} />
         </div>
         <div>
           <button type="submit">{displayName}</button>

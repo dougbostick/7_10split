@@ -46,7 +46,12 @@ export default function OrderHistory() {
           </div>
         );
       })
-    : "You need to shop first!";
+    : (
+      <div className="gutterMessage">
+      <h3>You Need To Shop First</h3>
+      <img src={"/images/gutterball.jpeg"}  style={{width: '350px', height: '250px'}}/>
+    </div>
+    );
   return (
     <div>
       <h1>Order History</h1>
