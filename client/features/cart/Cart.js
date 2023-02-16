@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchCartItems,
   fetchOrder,
@@ -7,9 +7,9 @@ import {
   selectOrder,
   checkoutOrder,
   updateQuantityAsync,
-  removeFromCart
-} from "./cartSlice";
-import { useParams } from "react-router-dom";
+  removeFromCart,
+} from './cartSlice';
+import { useParams } from 'react-router-dom';
 
 export default function Cart() {
   const user = useSelector((state) => state.auth.me);
@@ -26,7 +26,7 @@ export default function Cart() {
   }, [dispatch]);
 
   const updateQuantity = (quantity, itemId) => {
-    console.log("UPDATE", quantity, itemId);
+    console.log('UPDATE', quantity, itemId);
     dispatch(updateQuantityAsync({ quantity, itemId }));
   };
 
@@ -37,8 +37,8 @@ export default function Cart() {
   };
 
   const handleDelete = (id) => {
-    dispatch(removeFromCart(id))
-  }
+    dispatch(removeFromCart(id));
+  };
   const cartDiv = cart?.length ? (
     cart.map((item) => {
       // console.log("CARTDIV", item);
@@ -61,12 +61,18 @@ export default function Cart() {
             <div className="total">
               Total: $
               {Math.round(item.quantity * item.product.price * 100) / 100}
-              <div style={{ marginTop: "8px", fontSize: "16px" }}>
+              <div style={{ marginTop: '8px', fontSize: '16px' }}>
                 ${item.product.price} x {item.quantity}
               </div>
             </div>
 
-            <span style={{cursor: 'pointer'}}className="material-symbols-outlined" onClick={() => handleDelete(item.id)}>delete</span>
+            <span
+              style={{ cursor: 'pointer' }}
+              className="material-symbols-outlined"
+              onClick={() => handleDelete(item.id)}
+            >
+              delete
+            </span>
           </div>
         </div>
       );
@@ -75,29 +81,28 @@ export default function Cart() {
     <div className="gutterMessage">
       <h3>No Cart Items</h3>
       <img
-        src={"/images/gutterball.jpeg"}
-        style={{ width: "350px", height: "250px" }}
+        src={'/images/gutterball.jpeg'}
+        style={{ width: '350px', height: '250px' }}
       />
     </div>
   );
 
   return (
     <div>
-      <h1>{user.username}'s cart</h1>
       <div className="cartDiv">
-        {order.status === "pending" ? (
+        {order.status === 'pending' ? (
           cartDiv
         ) : (
           <div className="gutterMessage">
             <h3>You Have Already Checked Out</h3>
             <img
-              src={"/images/gutterball.jpeg"}
-              style={{ width: "350px", height: "250px" }}
+              src={'/images/gutterball.jpeg'}
+              style={{ width: '350px', height: '250px' }}
             />
           </div>
         )}
-        {cart?.length && order.status === "pending" ? (
-          <button onClick={handleCheckout} style={{ marginTop: "12px" }}>
+        {cart?.length && order.status === 'pending' ? (
+          <button onClick={handleCheckout} style={{ marginTop: '12px' }}>
             Checkout
           </button>
         ) : null}

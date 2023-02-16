@@ -6,7 +6,7 @@ body {
 
 a {
   text-decoration: none;
-  color:black
+  color: black;
 }
 
 label {
@@ -23,7 +23,7 @@ form div {
   display: inline-block;
 }
 
-.productImg{
+.productImg {
   height: 150px;
   width: 150px;
 }
@@ -31,13 +31,13 @@ form div {
   background-color: dodgerblue;
 } */
 
-.productDiv{
+.productDiv {
   width: 315px;
   height: 315px;
   list-style: none;
   margin: 24px;
   padding: 8px;
-  border: .25px solid rgb(179, 178, 178);
+  border: 0.25px solid rgb(179, 178, 178);
   /* box-shadow: 12px 12px 2px 1px grey; */
   line-height: 24px;
   font-size: 18px;
@@ -48,17 +48,16 @@ form div {
   background-color: white;
 }
 
-.prod-container{
+.prod-container {
   display: flex;
   flex-wrap: wrap;
   margin-left: 100px;
 }
 
-
-button{
-  transition: .2s;
+button {
+  transition: 0.2s;
   font-size: 18px;
-  background-color: red;
+  background-color: rgb(191, 45, 41);
   color: white;
   font-weight: bold;
   border: none;
@@ -66,37 +65,33 @@ button{
   border-radius: 10px;
 }
 
-button:hover{
-  opacity: .8
+button:hover {
+  opacity: 0.8;
 }
 
-button:active{
-  transition: .2s;
+button:active {
+  transition: 0.2s;
   background-color: white;
-  color:red;
+  color: rgb(191, 45, 41);
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48,
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
 }
 
-.singleProductDiv{
-  display:flex;
+.singleProductDiv {
+  display: flex;
   justify-content: space-around;
   background-color: white;
 }
 
-.singleProductImg{
+.singleProductImg {
   height: 300px;
   width: 300px;
   margin-right: 82px;
 }
 
-.singleLeft{
+.singleLeft {
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -105,7 +100,7 @@ button:active{
   flex: 1;
 }
 
-.singleRight{
+.singleRight {
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -113,12 +108,12 @@ button:active{
   flex: 1;
 }
 
-.navBar{
+.navBar {
   display: flex;
   justify-content: space-between;
 }
 
-.rightNav{
+.rightNav {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -126,7 +121,7 @@ button:active{
   width: 25%;
 }
 
-.cartDiv{
+.cartDiv {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,12 +129,12 @@ button:active{
   /* border: 1px solid red; */
 }
 
-.cartBoxDiv{
+.cartBoxDiv {
   width: 80%;
 }
 
-.cartBox{
-  border: .5px solid grey;
+.cartBox {
+  border: 0.5px solid grey;
   background-color: white;
   padding: 12px;
   display: flex;
@@ -148,18 +143,18 @@ button:active{
   /* border: 1px solid red; */
 }
 
-.gutterMessage{
+.gutterMessage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.total{
+.total {
   font-size: 18px;
 }
 
-.formDiv{
+.formDiv {
   /* border: 1px solid red; */
   height: 70vh;
   display: flex;
@@ -168,54 +163,54 @@ button:active{
   align-items: center;
 }
 
-.loginImg{
+.loginImg {
   height: 80%;
   width: auto;
 }
 
-.loginForm{
+.loginForm {
   display: flex;
   flex-direction: column;
   font-size: 24px;
 }
 
-.logoutBtn{
+.logoutBtn {
   background-color: darkgrey;
 }
 
-.logoutBtn:active{
+.logoutBtn:active {
   background-color: white;
-  color: darkgrey
+  color: darkgrey;
 }
 
-.filters{
+.filters {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-left: 70px;
 }
 
-.searchInput{
+.searchInput {
   font-size: 20px;
   padding: 8px;
   margin: 8px;
 }
 
-.prodFilter{
+.prodFilter {
   margin-right: 128px;
 }
 
-.prodSearch{
+.prodSearch {
   margin-right: 188px;
 }
 
-.homePage{
+.homePage {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.featureDiv{
+.featureDiv {
   border: 1px solid black;
   padding: 8px;
   margin: 12px;
@@ -226,7 +221,7 @@ button:active{
   width: 85%;
 }
 
-.welcome{
+.welcome {
   align-self: flex-start;
   margin-left: 100px;
   font-weight: bold;
@@ -236,7 +231,7 @@ button:active{
   color: black;
 }
 
-.mission{
+.mission {
   color: white;
   font-weight: bold;
   font-size: 24px;
@@ -251,16 +246,16 @@ button:active{
   width: 83%;
 }
 
-.featureInfo{
+.featureInfo {
   font-style: italic;
 }
 
-.featureDescription{
+.featureDescription {
   max-width: 25%;
   font-style: italic;
 }
 
-.featureItem{
+.featureItem {
   display: flex;
   flex-direction: column;
   font-size: 18px;
@@ -269,12 +264,12 @@ button:active{
   align-items: center;
 }
 
-.featImg{
+.featImg {
   width: 200px;
   height: 200px;
 }
 
-.footer{
+.footer {
   /* border: 1px solid purple; */
   background-color: grey;
   height: 100%;
@@ -284,51 +279,48 @@ button:active{
   align-items: center;
 }
 
-.footerText{
+.footerText {
   font-style: italic;
 }
 
-
-.footerImg{
-  width: 65px;
-  height: 65px;
+.footerImg {
+  width: 45px;
+  height: 45px;
   margin: 8px;
 }
 
-
-.actualApp{
+.actualApp {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.top{
+.top {
   flex: 1;
   margin: 8px;
-
 }
 
-.middle{
-  flex:4;
+.middle {
+  flex: 4;
   margin: 8px;
 }
 
-.bottom{
+.bottom {
   flex: 1;
   min-height: 80px;
   margin: 0;
 }
 
-.explosion{
+.explosion {
   height: 345px;
   width: 345px;
 }
 
-.expoDiv{
+.expoDiv {
   position: relative;
 }
 
-.expoText{
+.expoText {
   position: absolute;
   top: 40%;
   left: 32%;
@@ -336,3 +328,10 @@ button:active{
   font-weight: bold;
   font-size: 20px;
 }
+
+/* .orderHistory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
