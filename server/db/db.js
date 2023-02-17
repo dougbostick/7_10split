@@ -21,7 +21,8 @@ const config = {
 //   };
 // }
 
-const db = new Sequelize(`postgres://localhost:5432/7_10splitdb`, config);
+const db = new Sequelize(
+  process.env.DATABASE_URL || `postgres://localhost:5432/7_10splitdb`,
+  config
+);
 module.exports = db;
-
-//process.env.DATABASE_URL ||
