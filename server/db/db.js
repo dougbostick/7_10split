@@ -22,7 +22,7 @@ const config = {
 // }
 
 const db = new Sequelize(
-  process.env.DATABASE_URL || `postgres://localhost:5432/7_10splitdb`,
+  '0.0.0.0:5432/7_10splitdb' || `postgres://localhost:5432/7_10splitdb`,
   config
 );
 module.exports = db;
