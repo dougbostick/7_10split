@@ -3,14 +3,6 @@ const PORT = process.env.PORT || 8080;
 const app = require('./app');
 const seed = require('../script/seed');
 
-const { Pool } = require('pg');
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
-
 const init = async () => {
   try {
     if (process.env.SEED === 'true') {
