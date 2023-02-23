@@ -2,14 +2,6 @@
 
 const db = require('./db');
 
-const { Pool } = require('pg');
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
-
 const User = require('./models/User');
 const Product = require('./models/Product');
 const LineItem = require('./models/LineItem');
