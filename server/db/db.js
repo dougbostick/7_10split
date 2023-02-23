@@ -12,23 +12,23 @@ require('dotenv').config();
 
 const { Client } = require('pg');
 
-const db = new Client({
+const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
   },
 });
 
-db.connect();
+client.connect();
 
-db.query(
+client.query(
   'SELECT table_schema,table_name FROM information_schema.tables;',
   (err, res) => {
     if (err) throw err;
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
     }
-    db.end();
+    client.end();
   }
 );
 
@@ -51,10 +51,10 @@ const config = {
 //   };
 // }
 
-// const db = new Sequelize(
-//   process.env.DATABASE_URL || `postgres://localhost:5432/7_10splitdb`,
-//   config
-// );
+const db = new Sequelize(
+  process.env.DATABASE_URL || `postgres://localhost:5432/7_10splitdb`,
+  config
+);
 module.exports = db;
 
 //postgres://hitkekkxwzqhsa:ac8817e2c8dbeb707759d057a5839b371a133df3ac2d10a181d3c586f2887217@ec2-34-192-210-139.compute-1.amazonaws.com:5432/d1krrtamjg5pco
