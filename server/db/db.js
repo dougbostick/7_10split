@@ -1,6 +1,13 @@
 const Sequelize = require('sequelize');
 const pkg = require('../../package.json');
 require('dotenv').config();
+const { Pool } = require('pg');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 
 // const databaseName = pkg.name + (process.env.NODE_ENV === 'test' ? '-test' : '')
 
