@@ -66,7 +66,10 @@ const Navbar = () => {
             <div className="leftNav">
               <Link to="/home">
                 {' '}
-                <h1>7-10 Split</h1>
+                <img
+                  src="/images/7 - 1 SPLiT.png"
+                  style={{ height: '100px', width: '165px' }}
+                />
               </Link>
             </div>
             <div className="rightNav">
