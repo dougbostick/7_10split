@@ -7,7 +7,6 @@ const Product = require('./models/Product');
 const LineItem = require('./models/LineItem');
 const Order = require('./models/Order');
 
-//associations could go here!
 Order.belongsTo(User);
 LineItem.belongsTo(Order);
 LineItem.belongsTo(Product);

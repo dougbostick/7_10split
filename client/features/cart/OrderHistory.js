@@ -11,10 +11,8 @@ export default function OrderHistory() {
   const paidItems = useSelector(selectPaidItems);
   const user = useSelector((state) => state.auth.me);
 
-  // console.log("PAID ITEMS", paidItems)
   useEffect(() => {
     dispatch(fetchOrderHistory(user.id)).then((orderArr) => {
-      // console.log(orderArr)
       dispatch(fetchPaidItems(orderArr.payload));
     });
   }, [dispatch]);

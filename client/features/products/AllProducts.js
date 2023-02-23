@@ -1,33 +1,30 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   selectProducts,
   fetchProducts,
   sortByCategory,
   selectFilteredProducts,
   searchProducts,
-} from "./allProductsSlice";
-import { selectUser } from "../auth/authSlice";
+} from './allProductsSlice';
+import { selectUser } from '../auth/authSlice';
 import {
   fetchOrder,
   selectCart,
   addToCart,
   fetchCartItems,
-} from "../cart/cartSlice";
-import { Link } from "react-router-dom";
+} from '../cart/cartSlice';
+import { Link } from 'react-router-dom';
 
 export default function AllProducts() {
-  const [category, setCategory] = useState("");
-  const [view, setView] = useState("all");
-  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState('');
+  const [view, setView] = useState('all');
+  const [search, setSearch] = useState('');
 
   const dispatch = useDispatch();
   const products = useSelector(selectProducts);
   const filteredProducts = useSelector(selectFilteredProducts);
   const user = useSelector(selectUser);
-
-  // console.log(user.me)
-  // console.log('cart', cart)
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -35,9 +32,9 @@ export default function AllProducts() {
 
   const handleAddToCart = (productId) => {
     console.log(productId);
-    if (!user.me.id) return "not logged in";
+    if (!user.me.id) return 'not logged in';
     dispatch(fetchOrder(user.me.id)).then((res) => {
-      console.log("handle cart", res.payload);
+      console.log('handle cart', res.payload);
       const orderId = res.payload.id;
       dispatch(addToCart({ orderId, productId, quantity: 1 })).then(() =>
         dispatch(fetchCartItems(orderId))
@@ -47,24 +44,17 @@ export default function AllProducts() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    console.log("handlesub", category);
+    console.log('handlesub', category);
     dispatch(sortByCategory(category));
-    setView("filtered");
+    setView('filtered');
   };
-
-  // const handleSearch= (evt) => {
-  //   evt.preventDefault();
-  //   console.log(search);
-  //   dispatch(searchProducts(search));
-  //   setView("filtered");
-  // }
 
   useEffect(() => {
     if (search.length) {
       dispatch(searchProducts(search));
-      setView("filtered");
+      setView('filtered');
     } else {
-      setView("all");
+      setView('all');
     }
   }, [search]);
 
@@ -83,7 +73,7 @@ export default function AllProducts() {
           </div>
         );
       })
-    : "no products";
+    : 'no products';
 
   const filteredProductsDiv = filteredProducts
     ? filteredProducts.map((product) => {
@@ -100,11 +90,11 @@ export default function AllProducts() {
           </div>
         );
       })
-    : "no filtred products";
+    : 'no filtred products';
 
-  const productsDiv = view === "all" ? allProductsDiv : filteredProductsDiv;
+  const productsDiv = view === 'all' ? allProductsDiv : filteredProductsDiv;
   return (
-    <div >
+    <div>
       <div className="filters">
         <form className="prodSearch">
           <input

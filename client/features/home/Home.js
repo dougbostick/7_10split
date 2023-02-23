@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchSingleProduct,
   selectSingleProduct,
-} from "../products/singleProductSlice";
-import { Link } from "react-router-dom";
+} from '../products/singleProductSlice';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const username = useSelector((state) => state.auth.me.username);
@@ -12,14 +12,8 @@ const Home = () => {
   const [featuredBall, setFeaturedBall] = useState({});
   const [featuredShoe, setFeaturedShoe] = useState({});
 
-  // console.log(featuredBall);
-  // console.log(featuredShoe);
-  // console.log(images)
-
   const randomBallNum = Math.ceil(Math.random() * 15);
-  // console.log(randomBallNum);
   const randomShoeNum = Math.ceil(Math.random() * 24 + 16);
-  // console.log(randomShoeNum);
 
   useEffect(() => {
     dispatch(fetchSingleProduct(randomBallNum)).then((res) =>
@@ -32,9 +26,7 @@ const Home = () => {
 
   return (
     <div className="homePage">
-      <div className="welcome">
-        Welcome, {username}
-      </div>
+      <div className="welcome">Welcome, {username}</div>
       <div className="mission">
         <p>
           "Here at 7-10 Split, we aim to provide a top notch shopping experience
@@ -49,7 +41,7 @@ const Home = () => {
           <div className="expoDiv">
             <img
               className="explosion"
-              src={"/images/explosion-clip-art-15.png"}
+              src={'/images/explosion-clip-art-15.png'}
             />
             <div className="expoText">
               <h5>15% OFF!!!</h5>
@@ -68,7 +60,7 @@ const Home = () => {
             <img
               src={featuredBall.imgUrl}
               className="featImg"
-              style={{ marginTop: "18px" }}
+              style={{ marginTop: '18px' }}
             />
           </Link>
         </div>
@@ -79,9 +71,9 @@ const Home = () => {
           <div className="expoDiv">
             <img
               className="explosion"
-              src={"/images/explosion-clip-art-52.png"}
+              src={'/images/explosion-clip-art-52.png'}
             />
-            <div className="expoText" style={{ color: "black" }}>
+            <div className="expoText" style={{ color: 'black' }}>
               <h5>15% OFF!!!</h5>
               <h5>
                 Buy now for: {Math.round(featuredShoe.price * 0.85 * 100) / 100}
@@ -98,7 +90,7 @@ const Home = () => {
             <img
               src={featuredShoe.imgUrl}
               className="featImg"
-              style={{ marginTop: "18px" }}
+              style={{ marginTop: '18px' }}
             />
           </Link>
         </div>

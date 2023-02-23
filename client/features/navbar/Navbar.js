@@ -12,7 +12,6 @@ const Navbar = () => {
     navigate('/login');
   };
   const user = useSelector((state) => state.auth.me);
-  // console.log(user)
 
   return (
     <div>

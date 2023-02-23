@@ -17,7 +17,6 @@ export default function Cart() {
   const dispatch = useDispatch();
   const order = useSelector(selectOrder);
   const cart = useSelector(selectCart);
-  // console.log("CART", cart);
 
   useEffect(() => {
     dispatch(fetchOrder(userId)).then((order) =>
