@@ -36,7 +36,7 @@ export default function AllProducts() {
     dispatch(fetchOrder(user.me.id)).then((res) => {
       const orderId = res.payload.id;
       dispatch(addToCart({ orderId, productId, quantity: 1 })).then(() =>
-        dispatch(fetchCartItems(orderId))
+        dispatch(fetchCartItems(orderId)).then(() => alert('Added to cart'))
       );
     });
   };

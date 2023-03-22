@@ -25,7 +25,7 @@ export default function SingleProduct() {
     dispatch(fetchOrder(user.me.id)).then((res) => {
       const orderId = res.payload.id;
       dispatch(addToCart({ orderId, productId, quantity })).then(() =>
-        dispatch(fetchCartItems(orderId))
+        dispatch(fetchCartItems(orderId)).then(() => alert('Added to cart'))
       );
     });
   };
@@ -58,6 +58,9 @@ export default function SingleProduct() {
         >
           Add To Cart
         </button>
+        <Link to={'/products'} style={{ fontSize: '22px' }}>
+          <button>Back to Products</button>
+        </Link>
         {isAdmin ? (
           <Link to={`/products/${id}/edit`} style={{ fontSize: '22px' }}>
             {' '}
