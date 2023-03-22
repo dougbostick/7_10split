@@ -34,7 +34,6 @@ export default function AllProducts() {
     console.log(productId);
     if (!user.me.id) return 'not logged in';
     dispatch(fetchOrder(user.me.id)).then((res) => {
-      console.log('handle cart', res.payload);
       const orderId = res.payload.id;
       dispatch(addToCart({ orderId, productId, quantity: 1 })).then(() =>
         dispatch(fetchCartItems(orderId))
