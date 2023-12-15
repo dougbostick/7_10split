@@ -9,6 +9,7 @@ import { me } from './store';
 import SingleProduct from '../features/products/SingleProduct';
 import EditProduct from '../features/products/EditProduct';
 import OrderHistory from '../features/cart/OrderHistory';
+import CarouselComp from '../features/home/CarouselComp';
 
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -29,6 +30,7 @@ const AppRoutes = () => {
           <Route path="/products/:id" element={<SingleProduct />} />
           <Route path="/products/:id/edit" element={<EditProduct />} />
           <Route path="/orderHistory" element={<OrderHistory />} />
+          <Route path="/caro" element={<CarouselComp />} />
         </Routes>
       ) : (
         <Routes>

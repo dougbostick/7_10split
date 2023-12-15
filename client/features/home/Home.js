@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import CarouselComp from './CarouselComp';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchSingleProduct,
@@ -35,6 +36,8 @@ const Home = () => {
           welcome! Let's bowl!" -Sole Engineer, Doug Bostick
         </p>
       </div>
+
+      <CarouselComp />
       <div className="featureDiv">
         <div className="featureInfo">
           <h3>Featured Ball</h3>

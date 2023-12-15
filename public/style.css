@@ -326,6 +326,11 @@ button:active {
   font-size: 20px;
 }
 
+.caro {
+  width: 100%;
+  border: 1px solid black;
+}
+
 /* .orderHistory {
   display: flex;
   flex-direction: column;
