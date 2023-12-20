@@ -16,7 +16,7 @@ Admin functionality and the ability to edit products is available for authentica
 
 
  <a href="https://seven-ten-split.herokuapp.com/" target="_blank">
- <img src="https://github.com/dougbostick/7_10split/assets/95255667/b684046d-5e30-4289-96c3-9418876585fc" width="700px" />
+ <img src="https://github.com/dougbostick/7_10split/assets/95255667/b684046d-5e30-4289-96c3-9418876585fc" />
  </a>
 
 
