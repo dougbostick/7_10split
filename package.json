@@ -29,7 +29,10 @@
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
     "react-bootstrap": "^2.9.1",
-    "sequelize": "^6.25.3"
+    "react-multi-carousel": "^2.8.4",
+    "react-slick": "^0.29.0",
+    "sequelize": "^6.25.3",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",
