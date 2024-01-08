@@ -1,44 +1,25 @@
-# FS-App-Template
+# 7-10 Split
 
-## Setup
+## Premise
 
-To use this as boilerplate, you'll need to take the following steps:
+7-10 Split is an e-commerce application that accomodates every kind of bowler. You can choose the perfect bowling ball or pair of bowling shoes from hundreds of styles, brands and sizes!
 
-- Don't fork or clone this repo! Instead, create a new, empty
-  directory on your machine and `git init` (or create an empty repo on
-  Github and clone it to your local machine)
+## Technologies and Development
 
-- Now you will have to add the fs-app-template as a remote and merge it into your own repository.
+7-10 is a React application that utilizes Redux for state management so the client can keep track of all phases of the order including order history and cart edits.
+PostgreSQL manages the database which tracks users, products, and purchases. The server was built using Express and contains all the rest APIs that connect the front and back end of the application.
+Json web tokens are used to secure the accounts of users. 
+Admin functionality and the ability to edit products is available for authenticated admins. 
 
-```
-git remote add boilermaker git@github.com:FullstackAcademy/fs-app-template-v2.git
-git fetch boilermaker
-git merge boilermaker/main
-git branch -m master main
-```
+## Use it Now
+ Try it here: https://seven-ten-split.herokuapp.com/
 
-## Customize
 
-Now that you've got the code, follow these steps to get acclimated:
+ <a href="https://seven-ten-split.herokuapp.com/" target="_blank">
+ <img src="https://github.com/dougbostick/7_10split/assets/95255667/b684046d-5e30-4289-96c3-9418876585fc" />
+ </a>
 
-- Update project name and description in `package.json`
-- `npm install`
-- Create two postgres databases (`MY_APP_NAME` should match the `name`
-  parameter in `package.json`):
-- These commands will create both your **development** and **test** databases
 
-```
-createdb <YOUR APP NAME HERE FROM package.json>
-createdb <YOUR APP NAME HERE FROM package.json>-test
-```
 
-- By default, running `npm test` will use your test database, while
-  regular development uses development database
 
-## Start
 
-Sync and seed your database by running `npm run seed`. Running `npm run start:dev` will make great things happen!
-
-- start:dev will both start your server and build your client side files using webpack
-- start:dev:logger is the same as start:dev, but you will see your SQL queries (can be helpful for debugging)
-- start:dev:seed will start your server and also seed your database (this is useful when you are making schema changes and you don't want to run your seed script separately)
