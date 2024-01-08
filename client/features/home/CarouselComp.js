@@ -1,3 +1,5 @@
-export default function Slider() {
-  return <div>Caro</div>;
+import React from 'react';
+
+export default function Carousel() {
+  return <div>Carousel</div>;
 }
