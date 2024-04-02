@@ -29,7 +29,9 @@ const Home = () => {
     <div className="homePage">
       <div className="banner">
         <div className="bannerText">
-          <button className="bannerBtn">Shop Now</button>
+          <Link to={'/products'} className="bannerBtn">
+            Shop Now
+          </Link>
           <h1>Bowl Responsibly</h1>
           <h3>Discover the modern bowling online shopping experience.</h3>
         </div>
@@ -111,6 +113,25 @@ const Home = () => {
         <Link className="shopShoes" to="/products">
           <button className="shoptBtn">Shop Shoes</button>
         </Link>
+      </div>
+      <div className="trending">
+        <h1 className="trendingTitle">Now Trending</h1>
+        <div className="trendingItems">
+          <Link className="featuredItem" to={`/products/${featuredBall.id}`}>
+            <img className="featuredItemImg" src={featuredBall.imgUrl} />
+            <div className="featuredText">
+              <div>{featuredBall.name}</div>
+              <div>${featuredBall.price}</div>
+            </div>
+          </Link>
+          <Link className="featuredItem" to={`/products/${featuredShoe.id}`}>
+            <img className="featuredItemImg" src={featuredShoe.imgUrl} />
+            <div className="featuredText">
+              <div>{featuredShoe.name}</div>
+              <div>${featuredShoe.price}</div>
+            </div>
+          </Link>
+        </div>
       </div>
       {/* <div className="welcome">Welcome, {username}</div>
       <div className="mission">

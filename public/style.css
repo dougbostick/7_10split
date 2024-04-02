@@ -320,12 +320,15 @@ button:active {
 }
 
 .confidence {
-  height: 75vh;
+  margin-top: 4vmin;
+  height: 50vh;
   width: 100%;
+  margin-bottom: 2vmin;
 }
 .confidentText {
   margin-left: 10vmin;
   margin-bottom: 10vmin;
+  color: rgb(191, 45, 41);
 }
 .confidentReasons {
   display: flex;
@@ -408,6 +411,45 @@ button:active {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.trending {
+  height: 100vh;
+  width: 100%;
+}
+
+.trendingTitle {
+  margin-left: 10vmin;
+  color: rgb(191, 45, 41);
+}
+
+.trendingItems {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.featuredItem {
+  /* flex: 1; */
+  width: 30%;
+  height: 70%;
+  margin: 3vmin;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px 3px 5px 2px rgb(0, 0, 0, 0.1);
+}
+
+.featuredItemImg {
+  max-height: 60%;
+  width: auto;
+  max-width: 60%;
+}
+
+.featuredText {
+  text-align: center;
 }
 
 .top {
