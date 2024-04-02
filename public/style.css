@@ -361,6 +361,49 @@ button:active {
   justify-content: space-evenly;
 }
 
+.shopBalls {
+  background-image: url('./images/ballShop.jpg');
+  background-size: cover;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 5vmin;
+  margin: 2vmin;
+  border-radius: 15px;
+}
+
+.shopBalls:hover {
+  opacity: 0.8;
+}
+
+.shopShoes {
+  background-image: url('./images/shoeShop.jpg');
+  background-size: cover;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 5vmin;
+  margin: 2vmin;
+  border-radius: 15px;
+}
+
+.shoptBtn {
+  background-color: white;
+  color: black;
+  width: 40%;
+  padding: 2vmin;
+  font-size: 3vmin;
+}
+
+.shoptBtn:hover {
+  background-color: black;
+  color: white;
+}
+
 .actualApp {
   display: flex;
   flex-direction: column;

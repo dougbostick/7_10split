@@ -84,9 +84,7 @@ const Home = () => {
             </span>
             <div className="confidentLabel">30-Day Returns</div>
 
-            <p className="confidentDetails">
-              No questions asked 30-day return policy, shipping is covered
-            </p>
+            <p className="confidentDetails">Don't worry, shipping is covered</p>
           </div>
           <div className="reason">
             <span
@@ -99,16 +97,20 @@ const Home = () => {
             >
               support_agent
             </span>
-            <p className="confidentLabel">award-winning customer support</p>
+            <div className="confidentLabel">customer support</div>
             <p className="confidentDetails">
-              Our top rated customer suppor team is standing by
+              Award-winning customer support team standing by
             </p>
           </div>
         </div>
       </div>
       <div className="shopOptions">
-        <div className="shopBalls">Balls</div>
-        <div className="shopShoes">Shoes</div>
+        <Link className="shopBalls" to="/products">
+          <button className="shoptBtn">Shop Balls</button>
+        </Link>
+        <Link className="shopShoes" to="/products">
+          <button className="shoptBtn">Shop Shoes</button>
+        </Link>
       </div>
       {/* <div className="welcome">Welcome, {username}</div>
       <div className="mission">
