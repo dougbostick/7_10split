@@ -38,28 +38,71 @@ const Home = () => {
         <h1 className="confidentText">Choose 7-10 With Confidence</h1>
         <div className="confidentReasons">
           <div className="reason">
-            free shipping
-            <span class="material-symbols-outlined reasonIcon">
+            <span
+              class="material-symbols-outlined"
+              style={{
+                fontSize: '5vmin',
+                color: 'rgb(191, 45, 41)',
+                marginBottom: '2vmin',
+              }}
+            >
               local_shipping
             </span>
+
+            <div className="confidentLabel">Free Shipping</div>
+
+            <p className="confidentDetails">Free shipping on orders over $50</p>
           </div>
           <div className="reason">
-            lifetime warranty
-            <span class="material-symbols-outlined reasonIcon">
+            <span
+              class="material-symbols-outlined"
+              style={{
+                fontSize: '5vmin',
+                color: 'rgb(191, 45, 41)',
+                marginBottom: '2vmin',
+              }}
+            >
               new_releases
             </span>
+
+            <div className="confidentLabel">Lifetime Warranty</div>
+
+            <p className="confidentDetails">
+              Guarantee replacement on any ball or shoe
+            </p>
           </div>
           <div className="reason">
-            30-day returns
-            <span class="material-symbols-outlined reasonIcon">
+            <span
+              class="material-symbols-outlined"
+              style={{
+                fontSize: '5vmin',
+                color: 'rgb(191, 45, 41)',
+                marginBottom: '2vmin',
+              }}
+            >
               calendar_month
             </span>
+            <div className="confidentLabel">30-Day Returns</div>
+
+            <p className="confidentDetails">
+              No questions asked 30-day return policy, shipping is covered
+            </p>
           </div>
           <div className="reason">
-            award winning customer support
-            <span class="material-symbols-outlined reasonIcon">
+            <span
+              class="material-symbols-outlined"
+              style={{
+                fontSize: '5vmin',
+                color: 'rgb(191, 45, 41)',
+                marginBottom: '2vmin',
+              }}
+            >
               support_agent
             </span>
+            <p className="confidentLabel">award-winning customer support</p>
+            <p className="confidentDetails">
+              Our top rated customer suppor team is standing by
+            </p>
           </div>
         </div>
       </div>
