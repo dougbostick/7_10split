@@ -87,7 +87,7 @@ const Navbar = () => {
           </div>
         )}
       </nav>
-      <hr />
+      {/* <hr /> */}
     </div>
   );
 };

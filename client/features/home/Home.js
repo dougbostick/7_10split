@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Carousel from './CarouselComp';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchSingleProduct,
   selectSingleProduct,
 } from '../products/singleProductSlice';
 import { Link } from 'react-router-dom';
+// import landing from '../../../public/images/landing.png';
 
 const Home = () => {
   const username = useSelector((state) => state.auth.me.username);
@@ -27,7 +27,47 @@ const Home = () => {
 
   return (
     <div className="homePage">
-      <div className="welcome">Welcome, {username}</div>
+      <div className="banner">
+        <div className="bannerText">
+          <button className="bannerBtn">Shop Now</button>
+          <h1>Bowl Responsibly</h1>
+          <h3>Discover the modern bowling online shopping experience.</h3>
+        </div>
+      </div>
+      <div className="confidence">
+        <h1 className="confidentText">Choose 7-10 With Confidence</h1>
+        <div className="confidentReasons">
+          <div className="reason">
+            free shipping
+            <span class="material-symbols-outlined reasonIcon">
+              local_shipping
+            </span>
+          </div>
+          <div className="reason">
+            lifetime warranty
+            <span class="material-symbols-outlined reasonIcon">
+              new_releases
+            </span>
+          </div>
+          <div className="reason">
+            30-day returns
+            <span class="material-symbols-outlined reasonIcon">
+              calendar_month
+            </span>
+          </div>
+          <div className="reason">
+            award winning customer support
+            <span class="material-symbols-outlined reasonIcon">
+              support_agent
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className="shopOptions">
+        <div className="shopBalls">Balls</div>
+        <div className="shopShoes">Shoes</div>
+      </div>
+      {/* <div className="welcome">Welcome, {username}</div>
       <div className="mission">
         <p>
           "Here at 7-10 Split, we aim to provide a top notch shopping experience
@@ -36,7 +76,6 @@ const Home = () => {
           welcome! Let's bowl!" -Sole Engineer, Doug Bostick
         </p>
       </div>
-      <Carousel />
       <div className="featureDiv">
         <div className="featureInfo">
           <h3>Featured Ball</h3>
@@ -96,7 +135,7 @@ const Home = () => {
             />
           </Link>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
