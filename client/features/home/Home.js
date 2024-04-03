@@ -117,20 +117,24 @@ const Home = () => {
       <div className="trending">
         <h1 className="trendingTitle">Now Trending</h1>
         <div className="trendingItems">
-          <Link className="featuredItem" to={`/products/${featuredBall.id}`}>
-            <img className="featuredItemImg" src={featuredBall.imgUrl} />
+          <div className="featuredItem">
+            <Link className="featureLink" to={`/products/${featuredBall.id}`}>
+              <img className="featuredItemImg" src={featuredBall.imgUrl} />
+            </Link>
             <div className="featuredText">
               <div>{featuredBall.name}</div>
               <div>${featuredBall.price}</div>
             </div>
-          </Link>
-          <Link className="featuredItem" to={`/products/${featuredShoe.id}`}>
-            <img className="featuredItemImg" src={featuredShoe.imgUrl} />
+          </div>
+          <div className="featuredItem">
+            <Link className="featureLink" to={`/products/${featuredShoe.id}`}>
+              <img className="featuredItemImg" src={featuredShoe.imgUrl} />
+            </Link>
             <div className="featuredText">
               <div>{featuredShoe.name}</div>
               <div>${featuredShoe.price}</div>
             </div>
-          </Link>
+          </div>
         </div>
       </div>
       {/* <div className="welcome">Welcome, {username}</div>

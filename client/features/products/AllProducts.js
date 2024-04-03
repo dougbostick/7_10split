@@ -61,15 +61,28 @@ export default function AllProducts() {
     ? products.map((product) => {
         return (
           <div key={product.id} className="productDiv">
-            <Link to={`/products/${product.id}`}>
-              <img src={product.imgUrl} className="productImg" />
+            <Link className="productLink" to={`/products/${product.id}`}>
+              <img className="productImg" src={product.imgUrl} />
             </Link>
-            <div>{product.name}</div>
-            <div className="price">${product.price}</div>
-            <button onClick={() => handleAddToCart(product.id)}>
-              Add To Cart
-            </button>
+            <div className="productText">
+              <button onClick={() => handleAddToCart(product.id)}>
+                Add To Cart
+              </button>
+              <div>{product.name}</div>
+              <div>${product.price}</div>
+            </div>
           </div>
+
+          // <div key={product.id} className="productDiv">
+          //   <Link to={`/products/${product.id}`}>
+          //     <img src={product.imgUrl} className="productImg" />
+          //   </Link>
+          //   <div>{product.name}</div>
+          //   <div className="price">${product.price}</div>
+          // <button onClick={() => handleAddToCart(product.id)}>
+          //   Add To Cart
+          // </button>
+          // </div>
         );
       })
     : 'no products';
