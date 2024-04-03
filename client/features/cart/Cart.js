@@ -9,7 +9,7 @@ import {
   updateQuantityAsync,
   removeFromCart,
 } from './cartSlice';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 export default function Cart() {
   const user = useSelector((state) => state.auth.me);
@@ -79,10 +79,7 @@ export default function Cart() {
   ) : (
     <div className="gutterMessage">
       <h3>No Cart Items</h3>
-      <img
-        src={'/images/gutterball.jpeg'}
-        style={{ width: '350px', height: '250px' }}
-      />
+      <Link to="/products">Shop Now</Link>
     </div>
   );
 
@@ -93,11 +90,8 @@ export default function Cart() {
           cartDiv
         ) : (
           <div className="gutterMessage">
-            <h3>You Have Already Checked Out</h3>
-            <img
-              src={'/images/gutterball.jpeg'}
-              style={{ width: '350px', height: '250px' }}
-            />
+            <h3>No Cart Items</h3>
+            <Link to="/products">Shop Now</Link>
           </div>
         )}
         {cart?.length && order.status === 'pending' ? (

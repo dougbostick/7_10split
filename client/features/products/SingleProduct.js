@@ -41,7 +41,7 @@ export default function SingleProduct() {
         <div style={{ fontSize: '22px' }}>${singleProduct.price}</div>
 
         <form>
-          <label htmlFor="quantity">Qunantity:</label>
+          <label htmlFor="quantity">Quantity:</label>
           <input
             name="quantity"
             type="number"

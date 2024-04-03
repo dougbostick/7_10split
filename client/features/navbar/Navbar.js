@@ -28,35 +28,44 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="rightNav">
-              <button
-                type="button"
-                onClick={logoutAndRedirectHome}
-                className="logoutBtn"
-              >
-                <span className="material-symbols-outlined">logout</span>
-              </button>
               <Link to="/products">
-                <span
+                Products
+                {/* <span
                   className="material-symbols-outlined"
                   style={{ fontSize: '38px' }}
                 >
                   shopping_bag
-                </span>
+                </span> */}
               </Link>
+              <Link to="/orderhistory">
+                Order History
+                {/* <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: '38px' }}
+                >
+                  export_notes
+                </span> */}
+              </Link>
+              <button
+                type="button"
+                onClick={logoutAndRedirectHome}
+                className="logoutBtn"
+                style={{
+                  background: 'none',
+                  color: 'black',
+                  fontWeight: 'normal',
+                  fontSize: '16px',
+                }}
+              >
+                Logout
+                {/* <span className="material-symbols-outlined">logout</span> */}
+              </button>
               <Link to={`/cart/${user.id}`}>
                 <span
                   className="material-symbols-outlined"
                   style={{ fontSize: '38px' }}
                 >
                   shopping_cart_checkout
-                </span>
-              </Link>
-              <Link to="/orderhistory">
-                <span
-                  className="material-symbols-outlined"
-                  style={{ fontSize: '38px' }}
-                >
-                  export_notes
                 </span>
               </Link>
             </div>
@@ -73,21 +82,13 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="rightNav">
+              <Link to="/products">Products</Link>
               <Link to="/login">Login</Link>
               <Link to="/signup">Sign Up</Link>
-              <Link to="/products">
-                <span
-                  className="material-symbols-outlined"
-                  style={{ fontSize: '38px' }}
-                >
-                  shopping_bag
-                </span>
-              </Link>
             </div>
           </div>
         )}
       </nav>
-      {/* <hr /> */}
     </div>
   );
 };

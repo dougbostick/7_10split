@@ -16,8 +16,7 @@ const AuthForm = ({ name, displayName }) => {
 
   return (
     <div className="formDiv">
-      <img src="/images/loginIMG.jpg" className="loginImg" />
-      <h1 style={{ textAlign: 'center', lineHeight: '48px' }}>
+      <h1 style={{ lineHeight: '48px', marginRight: '10vmin' }}>
         Login or Sign Up to browse <br />
         our AMAZING DEALS!
       </h1>

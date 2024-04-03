@@ -32,7 +32,9 @@ export default function AllProducts() {
 
   const handleAddToCart = (productId) => {
     console.log(productId);
-    if (!user.me.id) return 'not logged in';
+    if (!user.me.id) {
+      alert('Please log in/ sign up to use cart!');
+    }
     dispatch(fetchOrder(user.me.id)).then((res) => {
       const orderId = res.payload.id;
       dispatch(addToCart({ orderId, productId, quantity: 1 })).then(() =>
@@ -65,24 +67,16 @@ export default function AllProducts() {
               <img className="productImg" src={product.imgUrl} />
             </Link>
             <div className="productText">
-              <button onClick={() => handleAddToCart(product.id)}>
+              <button
+                onClick={() => handleAddToCart(product.id)}
+                style={{ marginBottom: '12px' }}
+              >
                 Add To Cart
               </button>
               <div>{product.name}</div>
               <div>${product.price}</div>
             </div>
           </div>
-
-          // <div key={product.id} className="productDiv">
-          //   <Link to={`/products/${product.id}`}>
-          //     <img src={product.imgUrl} className="productImg" />
-          //   </Link>
-          //   <div>{product.name}</div>
-          //   <div className="price">${product.price}</div>
-          // <button onClick={() => handleAddToCart(product.id)}>
-          //   Add To Cart
-          // </button>
-          // </div>
         );
       })
     : 'no products';
@@ -91,14 +85,19 @@ export default function AllProducts() {
     ? filteredProducts.map((product) => {
         return (
           <div key={product.id} className="productDiv">
-            <Link to={`/products/${product.id}`}>
-              <img src={product.imgUrl} className="productImg" />
+            <Link className="productLink" to={`/products/${product.id}`}>
+              <img className="productImg" src={product.imgUrl} />
             </Link>
-            <div>{product.name}</div>
-            <div className="price">${product.price}</div>
-            <button onClick={() => handleAddToCart(product.id)}>
-              Add To Cart
-            </button>
+            <div className="productText">
+              <button
+                onClick={() => handleAddToCart(product.id)}
+                style={{ marginBottom: '12px' }}
+              >
+                Add To Cart
+              </button>
+              <div>{product.name}</div>
+              <div>${product.price}</div>
+            </div>
           </div>
         );
       })
@@ -107,31 +106,33 @@ export default function AllProducts() {
   const productsDiv = view === 'all' ? allProductsDiv : filteredProductsDiv;
   return (
     <div>
-      <div className="filters">
-        <form className="prodSearch">
-          <input
-            className="searchInput"
-            placeholder="search products..."
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </form>
-        <form className="prodFilter">
-          <select
-            className="searchInput"
-            onChange={(e) => setCategory(e.target.value)}
-          >
-            <option value="all">All Products</option>
-            <option value="ball">Bowling Balls</option>
-            <option value="shoe">Bowlings Shoes</option>
-          </select>
-          <button onClick={handleSubmit} className="searchInput">
-            Apply Filter
-          </button>
-        </form>
+      <div className="prod-container">
+        <div className="filters">
+          <form className="prodSearch">
+            <input
+              className="searchInput"
+              placeholder="search products..."
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </form>
+          <form className="prodFilter">
+            <select
+              className="searchInput"
+              onChange={(e) => setCategory(e.target.value)}
+            >
+              <option value="all">All Products</option>
+              <option value="ball">Bowling Balls</option>
+              <option value="shoe">Bowlings Shoes</option>
+            </select>
+            <button onClick={handleSubmit} className="searchInput searchBtn">
+              Apply Filter
+            </button>
+          </form>
+        </div>
+        {productsDiv}
       </div>
-      <div className="prod-container">{productsDiv}</div>
     </div>
   );
 }

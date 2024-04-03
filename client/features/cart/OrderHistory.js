@@ -5,6 +5,7 @@ import {
   fetchPaidItems,
   selectPaidItems,
 } from './cartSlice';
+import { Link } from 'react-router-dom';
 
 export default function OrderHistory() {
   const dispatch = useDispatch();
@@ -46,16 +47,17 @@ export default function OrderHistory() {
     })
   ) : (
     <div className="gutterMessage">
-      <h3>You Need To Shop First</h3>
-      <img
+      <h3>No Order History</h3>
+      <Link to=".products">Shop Now</Link>
+      {/* <img
         src={'/images/gutterball.jpeg'}
         style={{ width: '350px', height: '250px' }}
-      />
+      /> */}
     </div>
   );
   return (
     <div className="orderHistory">
-      <h1 style={{ marginLeft: '55px' }}>Order History</h1>
+      {/* <h1 style={{ marginLeft: '55px' }}>Order History</h1> */}
       {paidItemsDiv}
     </div>
   );

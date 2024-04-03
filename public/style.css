@@ -1,3 +1,9 @@
+@media (max-width: 800px) {
+  .searchBtn {
+    display: none;
+  }
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: rgb(248, 248, 250);
@@ -28,12 +34,21 @@ form div {
   min-width: 150px;
   max-width: 150px;
 }
-
+.productImg:hover {
+  min-height: auto;
+  max-height: auto;
+  min-width: 175px;
+  max-width: 175px;
+}
 
 .prod-container {
   display: flex;
   flex-wrap: wrap;
-  margin-left: 100px;
+  justify-content: center;
+  /* margin-left: 100px; */
+  /* width: 100%; */
+  margin-bottom: 68px;
+  padding: 18px;
 }
 
 button {
@@ -66,11 +81,12 @@ button:active {
   display: flex;
   justify-content: space-around;
   background-color: white;
+  padding-right: 10vmin;
 }
 
 .singleProductImg {
   height: 300px;
-  width: 300px;
+  width: auto;
   margin-right: 82px;
 }
 
@@ -101,7 +117,7 @@ button:active {
   justify-content: space-around;
   align-items: center;
   margin-right: 50px;
-  width: 25%;
+  width: 45%;
 }
 
 .cartDiv {
@@ -109,6 +125,8 @@ button:active {
   flex-direction: column;
   align-items: center;
   font-size: 22px;
+  min-height: 400px;
+  margin-bottom: 68px;
   /* border: 1px solid red; */
 }
 
@@ -131,6 +149,8 @@ button:active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 400px;
+  font-size: 26px;
 }
 
 .total {
@@ -142,7 +162,7 @@ button:active {
   height: 70vh;
   display: flex;
   /* flex-direction: column; */
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
 }
 
@@ -168,9 +188,10 @@ button:active {
 
 .filters {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin-left: 70px;
+  width: 100%;
+  /* margin-left: 70px; */
 }
 
 .searchInput {
@@ -185,7 +206,7 @@ button:active {
 }
 
 .prodSearch {
-  margin-right: 188px;
+  margin-left: 38px;
 }
 
 .homePage {
@@ -215,16 +236,14 @@ button:active {
   color: black;
 }
 
-
 .footer {
-  border-top: 1px solid black;
+  /* border-top: 1px solid black; */
+
+  box-shadow: 0 -3px 2px rgba(0, 0, 0, 0.1);
   background-color: white;
   height: 100%;
   width: 100%;
   display: flex;
-  /* margin-top: 28px; */
-  /* justify-content: center; */
-  /* align-items: center; */
 }
 
 .empty {
@@ -263,7 +282,7 @@ button:active {
 .banner {
   width: 100%;
   height: 100vh;
-  background-image: url('./images/landing.jpg');
+  background-image: url('./images/landing.png');
   /* background-image: url('./images/BowlingHeader.png'); */
 
   background-size: cover;
@@ -405,7 +424,7 @@ button:active {
 .productDiv {
   width: 35vh;
   height: 325px;
-  margin: 5vmin;
+  margin: 38px;
   display: flex;
   flex-direction: column;
   /* justify-content: space-around;
@@ -417,7 +436,7 @@ button:active {
   display: flex;
 }
 
-.productLink{
+.productLink {
   background-color: white;
   min-height: 200px;
   width: 100%;
@@ -429,7 +448,7 @@ button:active {
   flex: 3;
 }
 
-.productText{
+.productText {
   flex: 1;
   width: 100%;
   margin-top: 3vmin;
@@ -448,7 +467,7 @@ button:active {
   align-items: center;
 }
 
-.featureLink{
+.featureLink {
   background-color: white;
   height: 75%;
   width: 100%;
@@ -464,6 +483,12 @@ button:active {
   max-width: 60%;
 }
 
+.featuredItemImg:hover {
+  max-height: 70%;
+  width: auto;
+  max-width: 70%;
+}
+
 .featuredText {
   text-align: center;
 }
@@ -476,13 +501,14 @@ button:active {
 .middle {
   /* flex: 4; */
   /* margin: 8px; */
+  min-height: 75%;
 }
 
 .bottom {
   /* flex: 1; */
   /* min-height: 80px; */
   height: 30vh;
-  margin: 0;
+  /* margin-top: 68px; */
 }
 
 .explosion {
@@ -508,50 +534,3 @@ button:active {
   height: 100%;
   border: 1px solid black;
 }
-
-/* .orderHistory {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
-
-/* 
-
-.mission {
-  color: white;
-  font-weight: bold;
-  font-size: 24px;
-  font-style: italic;
-  /* border: 1px solid black; */
-  padding: 20px;
-  margin: 12px;
-  background-color: black;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  width: 83%;
-}
-
-.featureInfo {
-  font-style: italic;
-}
-
-.featureDescription {
-  max-width: 25%;
-  font-style: italic;
-}
-
-.featureItem {
-  display: flex;
-  flex-direction: column;
-  font-size: 18px;
-  font-style: italic;
-  font-weight: bold;
-  align-items: center;
-}
-
-.featImg {
-  width: 200px;
-  height: 200px;
-} */
