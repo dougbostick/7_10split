@@ -269,22 +269,45 @@ button:active {
 
 .footer {
   /* border: 1px solid purple; */
-  background-color: grey;
+  background-color: white;
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.empty {
+  width: 25%;
+  margin-left: 24px;
 }
 
 .footerText {
   font-style: italic;
+  margin-left: 10vmin;
+  margin-right: 4vmin;
+  margin-top: 12px;
+}
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-top: 12px;
+
+  /* flex: 2; */
+  /* margin-left: 6vmin; */
 }
 
-.footerImg {
-  width: 45px;
-  height: 45px;
-  margin: 8px;
+.footerLink {
+  margin: 18px;
+  color: rgb(191, 45, 41);
+  font-size: 16px;
+}
+.footerImgDiv {
+  flex: 1;
+  /* background-image: url('./images/loginIMG.jpg');
+  background-size: cover;
+  background-position: center; */
 }
 
 .banner {
@@ -464,7 +487,8 @@ button:active {
 
 .bottom {
   /* flex: 1; */
-  min-height: 80px;
+  /* min-height: 80px; */
+  height: 30vh;
   margin: 0;
 }
 
